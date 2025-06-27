@@ -1,0 +1,25 @@
+{
+  "name": "openlexia",
+  "version": "1.0.0",
+  "description": "**A clean, accessible Obsidian theme for academic writing.**   Built from scratch for clarity, contrast, and ease of use—especially for users with ADHD and/or Dyslexia.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "sass base.scss theme.css"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sjelms/Openlexia.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/sjelms/Openlexia/issues"
+  },
+  "homepage": "https://github.com/sjelms/Openlexia#readme",
+  "devDependencies": {
+    "sass": "^1.89.2"
+  }
+}

@@ -1,52 +1,17 @@
-# Prerequisites
-*.d
+# macOS clutter
+.DS_Store
 
-# Object files
-*.o
-*.ko
-*.obj
-*.elf
+# Sass build output
+dist/
+*.css
+*.css.map
 
-# Linker output
-*.ilk
-*.map
-*.exp
+# Node modules
+node_modules/
 
-# Precompiled Headers
-*.gch
-*.pch
+# Obsidian-specific files
+.obsidian/
+workspace.json
 
-# Libraries
-*.lib
-*.a
-*.la
-*.lo
-
-# Shared objects (inc. Windows DLLs)
-*.dll
-*.so
-*.so.*
-*.dylib
-
-# Executables
-*.exe
-*.out
-*.app
-*.i*86
-*.x86_64
-*.hex
-
-# Debug files
-*.dSYM/
-*.su
-*.idb
-*.pdb
-
-# Kernel Module Compile Results
-*.mod*
-*.cmd
-.tmp_versions/
-modules.order
-Module.symvers
-Mkfile.old
-dkms.conf
+# Logs
+*.log

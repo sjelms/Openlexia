@@ -1,0 +1,32 @@
+/* settings/fonts.scss */
+
+/* === Font Imports === */
+
+/* OpenDyslexic (for note content) */
+@import url('https://cdn.jsdelivr.net/gh/antijingoist/open-dyslexic/webkit/stylesheet.css');
+
+/* Fira Code (for UI) */
+@import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@300..700&display=swap');
+
+/* === Font Assignments === */
+
+/* Apply Fira Code to the interface */
+body,
+.workspace,
+.workspace-tab-header-container,
+.sidebar,
+.mod-left-split,
+.mod-right-split {
+  font-family: 'Fira Code', monospace;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+}
+
+/* Apply OpenDyslexic to note content */
+.markdown-preview-view,
+.markdown-source-view,
+.cm-content,
+.cm-line {
+  font-family: 'OpenDyslexic3', 'OpenDyslexic', sans-serif;
+}

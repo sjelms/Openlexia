@@ -1,0 +1,185 @@
+/* base.scss */
+@import 'settings/fonts';
+@import 'settings/colors-dark';
+
+/* Apply background and base text color */
+body.theme-dark {
+  background-color: $background;
+  color: $text;
+}
+
+/* === Emphasis === */
+strong {
+  font-weight: bold;
+  color: $bold-color;
+}
+
+em {
+  font-style: italic;
+  color: $italic-color;
+}
+
+strong em,
+em strong {
+  font-weight: bold;
+  font-style: italic;
+  color: $bolditalic-color;
+}
+
+del {
+  text-decoration: line-through;
+  color: $strikethrough-color;
+}
+
+/* === Blockquotes === */
+blockquote {
+  border-left: 4px solid $blockquote-border;
+  padding-left: 1em;
+  color: $blockquote-color;
+}
+
+/* === Code === */
+code {
+  background-color: $code-bg;
+  color: $code-text;
+  padding: 2px 4px;
+  border-radius: 4px;
+}
+
+pre {
+  background-color: $code-bg;
+  color: $code-text;
+  padding: 1em;
+  border-radius: 6px;
+  overflow-x: auto;
+}
+
+/* === Lists === */
+ul, ol {
+  color: $text;
+}
+
+/* === Checkboxes === */
+input[type="checkbox"] {
+  accent-color: $checkbox-unchecked;
+}
+
+input[type="checkbox"]:checked {
+  accent-color: $checkbox-checked;
+}
+
+/* === Links === */
+a {
+  color: $accent;
+  text-decoration: underline;
+}
+
+/* === Headings === */
+.cm-header-1 { color: $h1-color; }
+.cm-header-2 { color: $h2-color; }
+.cm-header-3 { color: $h3-color; }
+.cm-header-4 { color: $h4-color; }
+.cm-header-5 { color: $h5-color; }
+.cm-header-6 { color: $h6-color; }
+
+.markdown-preview-view h1,
+.markdown-source-view h1,
+.markdown-reading-view h1,
+.cm-content h1 {
+  color: $h1-color;
+}
+
+.markdown-preview-view h2,
+.markdown-source-view h2,
+.markdown-reading-view h2,
+.cm-content h2 {
+  color: $h2-color;
+}
+
+.markdown-preview-view h3,
+.markdown-source-view h3,
+.markdown-reading-view h3,
+.cm-content h3 {
+  color: $h3-color;
+}
+
+.markdown-preview-view h4,
+.markdown-source-view h4,
+.markdown-reading-view h4,
+.cm-content h4 {
+  color: $h4-color;
+}
+
+.markdown-preview-view h5,
+.markdown-source-view h5,
+.markdown-reading-view h5,
+.cm-content h5 {
+  color: $h5-color;
+}
+
+.markdown-preview-view h6,
+.markdown-source-view h6,
+.markdown-reading-view h6,
+.cm-content h6 {
+  color: $h6-color;
+}
+
+/* === Emphasis in Editor View (CodeMirror) === */
+.cm-strong {
+  color: $bold-color;
+}
+
+.cm-em {
+  color: $italic-color;
+}
+
+.cm-strong.cm-em,
+.cm-em.cm-strong {
+  color: $bolditalic-color;
+}
+
+.cm-strikethrough {
+  color: $strikethrough-color;
+}
+
+.cm-quote,
+.HyperMD-quote {
+  color: $blockquote-color;
+  border-left: 4px solid $blockquote-border;
+  padding-left: 1em;
+  margin: 1em 0;
+}
+
+.cm-inline-code {
+  background-color: $code-bg;
+  color: $code-text;
+  padding: 2px 4px;
+  border-radius: 4px;
+  font-family: inherit;
+}
+
+ul > li::marker,
+ol > li::marker,
+.cm-formatting-list,
+.cm-formatting-list-ul,
+.cm-formatting-list-ol,
+.list-bullet,
+.list-number,
+.HyperMD-list-line span[class*="list"]::marker {
+  color: $list-marker-color;
+}
+
+.HyperMD-codeblock-bg {
+  background-color: $code-bg;
+  color: $code-text;
+  padding: 1em;
+  border-radius: 6px;
+}
+
+.cm-link a {
+  color: $link-internal-color;
+}
+
+.external-link {
+  color: $link-external-color;
+}

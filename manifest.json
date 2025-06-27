@@ -1,0 +1,9 @@
+{
+  "name": "Openlexia",
+  "author": "Stephen J Elms",
+  "version": "0.0.1",
+  "minAppVersion": "1.0.0",
+  "description": "A clean, accessible Obsidian theme for academic writing. Designed with clarity, contrast, and neurodivergent users in mind, featuring the OpenDyslexic typeface.",
+  "isDesktopOnly": false,
+  "css": "theme.css"
+}
