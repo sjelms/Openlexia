@@ -1,11 +1,23 @@
 /* base.scss */
 @import 'settings/fonts';
 @import 'settings/colors-dark';
+@import 'settings/style-settings.scss';
 
 /* Apply background and base text color */
 body.theme-dark {
   background-color: $background;
   color: $text;
+}
+
+/* === Body Text Leading & Line Spacing === */
+.markdown-preview-view,
+.markdown-reading-view,
+.markdown-source-view .cm-content,
+.cm-s-obsidian .cm-content {
+  color: var(--body-text-color, $text);
+  line-height: var(--body-line-height, 1.7); // Adjust for leading
+  letter-spacing: var(--body-letter-spacing, 0.015em); // Optional: subtle tracking
+  font-size: var(--body-font-size, 22px);
 }
 
 /* === Emphasis === */
@@ -32,31 +44,153 @@ del {
 }
 
 /* === Blockquotes === */
-blockquote {
-  border-left: 4px solid $blockquote-border;
+blockquote,
+.markdown-rendered blockquote,
+.cm-s-obsidian .HyperMD-quote {
+  color: $blockquote-color;
+  // background-color: $blockquote-background-color;
+  border-inline-start: 4px solid $blockquote-border;
   padding-left: 1em;
+  margin: 1em 0;
+}
+
+.cm-s-obsidian span.cm-quote {
   color: $blockquote-color;
 }
 
 /* === Code === */
-code {
-  background-color: $code-bg;
-  color: $code-text;
+code,
+.markdown-rendered code,
+.cm-inline-code,
+.cm-s-obsidian span.cm-inline-code,
+.markdown-source-view .inline-code,
+.markdown-reading-view code,
+.markdown-rendered .inline-code {
+  background-color: $inline-code-bg;
+  color: $inline-code-text;
   padding: 2px 4px;
   border-radius: 4px;
+  font-family: inherit;
 }
 
-pre {
-  background-color: $code-bg;
-  color: $code-text;
-  padding: 1em;
-  border-radius: 6px;
+pre,
+.HyperMD-codeblock,
+.HyperMD-codeblock-bg,
+.HyperMD-codeblock-begin,
+.HyperMD-codeblock-end,
+.markdown-rendered pre,
+.cm-s-obsidian div.HyperMD-codeblock-bg {
+  background-color: $code-bg !important;
+  color: $code-text !important;
+  padding: 2em;
+  line-height: 1.8em; // Ensure it matches or exceeds flair size
+  border-radius: 0px;
   overflow-x: auto;
 }
 
+/* === Code Block Flair Adjustment === */
+.code-block-flair {
+  height: 1.5em; // adjust as needed
+  line-height: 1.5em; // match height to prevent overflow
+  padding: 0;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 1.5em;
+  overflow: hidden;
+}
+
+// === Code Block Flair SVG Icon Customization ===
+.code-block-flair svg {
+  stroke: $icon-color;
+  width: 1em;
+  height: 1em;
+  transition: stroke 0.2s ease;
+}
+
+.code-block-flair:hover svg {
+  stroke: lighten($icon-color, 10%);
+}
+
 /* === Lists === */
-ul, ol {
+.cm-formatting-list,
+.cm-formatting-list-ul,
+.cm-formatting-list-ol,
+.cm-list-1,
+.cm-s-obsidian .cm-formatting-list {
+  color: inherit !important;
+  text-decoration: none !important;
+  font-weight: normal;
+}
+
+.list-bullet {
+  color: var(--list-marker-color, $list-marker-color) !important;
+}
+
+
+.cm-formatting-list-ul .list-bullet {
+  font-family: inherit;
+  color: transparent !important;
+  text-decoration: none !important;
+  position: relative;
+}
+
+.cm-formatting-list-ul .list-bullet::before {
+  content: '•';
+  font-family: "Fira Code", monospace;
+  color: var(--list-marker-color, $list-marker-color);
+  position: absolute;
+  left: 0;
+}
+.cm-s-obsidian .list-bullet {
+  font-family: "Fira Code", monospace !important;
+  color: var(--list-marker-color, $list-marker-color) !important;
+}
+
+.cm-formatting-list-ol,
+.cm-s-obsidian .cm-formatting-list-ol,
+.cm-s-obsidian .list-number,
+span.cm-formatting-list-ol,
+span.list-number {
+  color: var(--list-marker-color, $list-marker-color) !important;
+}
+
+.markdown-preview-view ol > li::marker,
+.markdown-source-view ol > li::marker,
+.markdown-reading-view ol > li::marker {
+  color: var(--list-marker-color, $list-marker-color) !important;
+}
+
+ul li,
+ol li {
   color: $text;
+}
+
+/* Added list customization using Style Settings plugin variables */
+.markdown-preview-view ul,
+.markdown-reading-view ul,
+.markdown-source-view ul,
+.markdown-preview-view ol,
+.markdown-reading-view ol,
+.markdown-source-view ol {
+  padding-left: var(--list-indent, 2em);
+  margin-bottom: var(--list-spacing, 0.5em);
+}
+
+.markdown-preview-view ul > li,
+.markdown-reading-view ul > li,
+.markdown-source-view ul > li,
+.markdown-preview-view ol > li,
+.markdown-reading-view ol > li,
+.markdown-source-view ol > li {
+  margin-bottom: var(--list-spacing, 0.5em);
+}
+
+.markdown-preview-view ol,
+.markdown-reading-view ol,
+.markdown-source-view ol {
+  list-style-type: var(--list-numbered-style, decimal);
 }
 
 /* === Checkboxes === */
@@ -69,8 +203,39 @@ input[type="checkbox"]:checked {
 }
 
 /* === Links === */
-a {
-  color: $accent;
+ a.internal-link,
+.cm-hmd-internal-link a,
+.cm-link a.internal-link,
+.markdown-rendered a.internal-link {
+  color: var(--link-internal-color, $link-internal-color) !important;
+  text-decoration: none !important;
+}
+
+// External link styling: high specificity and coverage
+a.external-link,
+.cm-url.external-link,
+.cm-link a:not(.internal-link),
+.markdown-rendered a.external-link,
+.markdown-rendered a:not(.internal-link) {
+  color: var(--link-external-color, $link-external-color) !important;
+  text-decoration: none !important;
+}
+
+/* Hover styles */
+a.internal-link:hover,
+.cm-hmd-internal-link a:hover,
+.cm-link a.internal-link:hover,
+.markdown-rendered a.internal-link:hover {
+  color: var(--link-internal-color, $link-internal-color) !important;
+  text-decoration: underline;
+}
+
+a.external-link:hover,
+.cm-url.external-link:hover,
+.cm-link a:not(.internal-link):hover,
+.markdown-rendered a.external-link:hover,
+.markdown-rendered a:not(.internal-link):hover {
+  color: var(--link-external-color, $link-external-color) !important;
   text-decoration: underline;
 }
 
@@ -86,42 +251,54 @@ a {
 .markdown-source-view h1,
 .markdown-reading-view h1,
 .cm-content h1 {
-  color: $h1-color;
+  color: var(--heading-1-color, $h1-color);
+  line-height: var(--heading-1-line-height, 1.2);
+  margin-bottom: var(--heading-1-spacing-after, 0.75em);
 }
 
 .markdown-preview-view h2,
 .markdown-source-view h2,
 .markdown-reading-view h2,
 .cm-content h2 {
-  color: $h2-color;
+  color: var(--heading-2-color, $h2-color);
+  line-height: var(--heading-2-line-height, 1.2);
+  margin-bottom: var(--heading-2-spacing-after, 0.75em);
 }
 
 .markdown-preview-view h3,
 .markdown-source-view h3,
 .markdown-reading-view h3,
 .cm-content h3 {
-  color: $h3-color;
+  color: var(--heading-3-color, $h3-color);
+  line-height: var(--heading-3-line-height, 1.2);
+  margin-bottom: var(--heading-3-spacing-after, 0.75em);
 }
 
 .markdown-preview-view h4,
 .markdown-source-view h4,
 .markdown-reading-view h4,
 .cm-content h4 {
-  color: $h4-color;
+  color: var(--heading-4-color, $h4-color);
+  line-height: var(--heading-4-line-height, 1.2);
+  margin-bottom: var(--heading-4-spacing-after, 0.75em);
 }
 
 .markdown-preview-view h5,
 .markdown-source-view h5,
 .markdown-reading-view h5,
 .cm-content h5 {
-  color: $h5-color;
+  color: var(--heading-5-color, $h5-color);
+  line-height: var(--heading-5-line-height, 1.2);
+  margin-bottom: var(--heading-5-spacing-after, 0.75em);
 }
 
 .markdown-preview-view h6,
 .markdown-source-view h6,
 .markdown-reading-view h6,
 .cm-content h6 {
-  color: $h6-color;
+  color: var(--heading-6-color, $h6-color);
+  line-height: var(--heading-6-line-height, 1.2);
+  margin-bottom: var(--heading-6-spacing-after, 0.75em);
 }
 
 /* === Emphasis in Editor View (CodeMirror) === */
@@ -142,44 +319,21 @@ a {
   color: $strikethrough-color;
 }
 
-.cm-quote,
-.HyperMD-quote {
+
+.cm-quote {
   color: $blockquote-color;
+}
+
+.HyperMD-quote:not(.HyperMD-quote-1) {
   border-left: 4px solid $blockquote-border;
+  background-color: $blockquote-background-color;
   padding-left: 1em;
   margin: 1em 0;
 }
 
-.cm-inline-code {
-  background-color: $code-bg;
-  color: $code-text;
-  padding: 2px 4px;
-  border-radius: 4px;
-  font-family: inherit;
-}
 
-ul > li::marker,
-ol > li::marker,
-.cm-formatting-list,
-.cm-formatting-list-ul,
-.cm-formatting-list-ol,
-.list-bullet,
-.list-number,
-.HyperMD-list-line span[class*="list"]::marker {
-  color: $list-marker-color;
-}
+/* (Handled above for marker color) */
 
-.HyperMD-codeblock-bg {
-  background-color: $code-bg;
-  color: $code-text;
-  padding: 1em;
-  border-radius: 6px;
-}
+/* (Handled above for marker and formatting list color) */
 
-.cm-link a {
-  color: $link-internal-color;
-}
-
-.external-link {
-  color: $link-external-color;
-}
+/* (Ensured above: list item text color override) */

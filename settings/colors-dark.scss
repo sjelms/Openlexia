@@ -3,11 +3,25 @@ $background: #011F26;
 $text: #D9D9D9;
 $muted: #aaaaaa;
 $accent: #7aa2f7;
+
+
+/* === Blockquotes === */
 $blockquote-border: #0B9EBF;
 $blockquote-heading-color: #6B90A0;
+$blockquote-background-color: #0A1F2A;
+$blockquote-color: #AFB0B3;
+
+
+/* === Code === */
 $code-bg: #567F52;
 $code-text: #F2FFF1;
-$list-marker-color: #0B9EBF;
+$code-border-color: #395C3C;
+$inline-code-text: #C3FBD8;
+$inline-code-bg: #173C26;
+$icon-color: #CCCCCC;
+
+
+/* === Checkboxes === */
 $checkbox-checked: #cba6f7;
 $checkbox-unchecked: #555;
 
@@ -23,9 +37,24 @@ $h6-color: #F2E63D;
 $bold-color: #23A5D9;
 $italic-color: #03A696;
 $bolditalic-color: #07F2DB;
-$strikethrough-color: #A6A6A6;
-$blockquote-color: #AFB0B3;
+$strikethrough-color: #6093BF;
 
 /* === Links === */
 $link-internal-color: #41BF9B;
 $link-external-color: #AABF0B;
+
+
+/* === Lists === */
+$list-marker-color: #0B9EBF;
+
+/* === Table (future use) === */
+$table-border: #366879;
+$table-header-bg: #0B2832;
+$table-row-bg: #0E1E28;
+
+/* === Markdown Syntax & Special Elements === */
+$formatting-link-color: #F20CB5;
+$url-color: #F20CB5;
+$meta-color: #F20CB5;
+$hashtag-color: #F20CB5;
+$hr-line-color: #F20CB5;

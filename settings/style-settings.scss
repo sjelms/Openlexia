@@ -1,0 +1,239 @@
+/* @settings
+name: Openlexia Theme
+id: openlexia-theme
+settings:
+  - id: list-heading
+    title: Lists
+    type: heading
+    level: 2
+    collapsed: true
+
+  - id: list-indent
+    title: List Indent
+    type: variable-number
+    default: 2
+    format: em
+
+  - id: list-spacing
+    title: List Spacing
+    type: variable-number
+    default: 0.5
+    format: em
+
+  - id: list-marker-color
+    title: Bullet Marker Color
+    type: variable-themed-color
+    default-light: '#444444'
+    default-dark: '#0B9EBF'
+    format: hex
+
+  - id: list-numbered-style
+    title: Ordered List Style
+    type: variable-select
+    default: decimal
+    options:
+      - label: "Decimal"
+        value: decimal
+      - label: "Lower Alpha"
+        value: lower-alpha
+      - label: "Upper Alpha"
+        value: upper-alpha
+      - label: "Lower Roman"
+        value: lower-roman
+      - label: "Upper Roman"
+        value: upper-roman"
+
+  - id: typography-heading
+    title: Typography
+    type: heading
+    level: 2
+    collapsed: true
+
+  - id: heading-settings
+    title: Headings
+    type: heading
+    level: 3
+    collapsed: true
+
+  - id: heading-1-settings
+    title: Heading 1
+    type: heading
+    level: 4
+    collapsed: true
+
+  - id: heading-1-line-height
+    title: Line Height
+    type: variable-number
+    default: 1.2
+    format: em
+
+  - id: heading-1-spacing-after
+    title: Spacing After
+    type: variable-number
+    default: 0.75
+    format: em
+
+  - id: heading-1-color
+    title: Color
+    type: variable-themed-color
+    default-light: '#000000'
+    default-dark: '#D96C0D'
+    format: hex
+
+  - id: heading-2-settings
+    title: Heading 2
+    type: heading
+    level: 4
+    collapsed: true
+
+  - id: heading-2-line-height
+    title: Line Height
+    type: variable-number
+    default: 1.2
+    format: em
+
+  - id: heading-2-spacing-after
+    title: Spacing After
+    type: variable-number
+    default: 0.75
+    format: em
+
+  - id: heading-2-color
+    title: Color
+    type: variable-themed-color
+    default-light: '#000000'
+    default-dark: '#F25C05'
+    format: hex
+
+  - id: heading-3-settings
+    title: Heading 3
+    type: heading
+    level: 4
+    collapsed: true
+
+  - id: heading-3-line-height
+    title: Line Height
+    type: variable-number
+    default: 1.2
+    format: em
+
+  - id: heading-3-spacing-after
+    title: Spacing After
+    type: variable-number
+    default: 0.75
+    format: em
+
+  - id: heading-3-color
+    title: Color
+    type: variable-themed-color
+    default-light: '#000000'
+    default-dark: '#F29F05'
+    format: hex
+
+  - id: heading-4-settings
+    title: Heading 4
+    type: heading
+    level: 4
+    collapsed: true
+
+  - id: heading-4-line-height
+    title: Line Height
+    type: variable-number
+    default: 1.2
+    format: em
+
+  - id: heading-4-spacing-after
+    title: Spacing After
+    type: variable-number
+    default: 0.75
+    format: em
+
+  - id: heading-4-color
+    title: Color
+    type: variable-themed-color
+    default-light: '#000000'
+    default-dark: '#BF6B04'
+    format: hex
+
+  - id: heading-5-settings
+    title: Heading 5
+    type: heading
+    level: 4
+    collapsed: true
+
+  - id: heading-5-line-height
+    title: Line Height
+    type: variable-number
+    default: 1.2
+    format: em
+
+  - id: heading-5-spacing-after
+    title: Spacing After
+    type: variable-number
+    default: 0.75
+    format: em
+
+  - id: heading-5-color
+    title: Color
+    type: variable-themed-color
+    default-light: '#000000'
+    default-dark: '#B149BF'
+    format: hex
+
+  - id: heading-6-settings
+    title: Heading 6
+    type: heading
+    level: 4
+    collapsed: true
+
+  - id: heading-6-line-height
+    title: Line Height
+    type: variable-number
+    default: 1.2
+    format: em
+
+  - id: heading-6-spacing-after
+    title: Spacing After
+    type: variable-number
+    default: 0.75
+    format: em
+
+  - id: heading-6-color
+    title: Color
+    type: variable-themed-color
+    default-light: '#000000'
+    default-dark: '#F2E63D'
+    format: hex
+
+
+  - id: body-text-settings
+    title: Body Text
+    type: heading
+    level: 3
+    collapsed: true
+
+  - id: body-font-size
+    title: Body Font Size
+    type: variable-number
+    default: 22
+    format: px
+
+  - id: body-line-height
+    title: Body Text Line Height
+    type: variable-number
+    default: 1.7
+    format: em
+
+  - id: body-letter-spacing
+    title: Body Text Letter Spacing
+    type: variable-number
+    default: 0.015
+    format: em
+
+  - id: body-text-color
+    title: Body Text Color
+    type: variable-themed-color
+    default-light: '#000000'
+    default-dark: '#D9D9D9'
+    format: hex
+*/
