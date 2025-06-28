@@ -2,47 +2,6 @@
 name: Openlexia Theme
 id: openlexia-theme
 settings:
-  - id: list-heading
-    title: Lists
-    type: heading
-    level: 2
-    collapsed: true
-
-  - id: list-indent
-    title: List Indent
-    type: variable-number
-    default: 2
-    format: em
-
-  - id: list-spacing
-    title: List Spacing
-    type: variable-number
-    default: 0.5
-    format: em
-
-  - id: list-marker-color
-    title: Bullet Marker Color
-    type: variable-themed-color
-    default-light: '#444444'
-    default-dark: '#0B9EBF'
-    format: hex
-
-  - id: list-numbered-style
-    title: Ordered List Style
-    type: variable-select
-    default: decimal
-    options:
-      - label: "Decimal"
-        value: decimal
-      - label: "Lower Alpha"
-        value: lower-alpha
-      - label: "Upper Alpha"
-        value: upper-alpha
-      - label: "Lower Roman"
-        value: lower-roman
-      - label: "Upper Roman"
-        value: upper-roman"
-
   - id: typography-heading
     title: Typography
     type: heading
@@ -235,5 +194,181 @@ settings:
     type: variable-themed-color
     default-light: '#000000'
     default-dark: '#D9D9D9'
+    format: hex
+
+  - id: list-heading
+    title: Lists
+    type: heading
+    level: 2
+    collapsed: true
+
+  - id: list-indent
+    title: List Indent
+    type: variable-number
+    default: 2
+    format: em
+
+  - id: list-spacing
+    title: List Spacing
+    type: variable-number
+    default: 0.5
+    format: em
+
+  - id: unordered-list-color
+    title: Unordered List Marker Color
+    type: variable-themed-color
+    default-light: '#444444'
+    default-dark: '#0B9EBF'
+    format: hex
+
+  - id: checkbox-color
+    title: Checkbox Marker Color
+    type: variable-themed-color
+    default-light: '#000000'
+    default-dark: '#0B9EBF'
+    format: hex
+
+  - id: list-numbered-style
+    title: Ordered List Style
+    type: variable-select
+    default: decimal
+    options:
+      - label: "Decimal"
+        value: decimal
+      - label: "Lower Alpha"
+        value: lower-alpha
+      - label: "Upper Alpha"
+        value: upper-alpha
+      - label: "Lower Roman"
+        value: lower-roman
+      - label: "Upper Roman"
+        value: upper-roman"
+
+  - id: ordered-list-color
+    title: Ordered List Number Color
+    type: variable-themed-color
+    default-light: '#000000'
+    default-dark: '#0B9EBF'
+    format: hex
+
+  - id: blocks-style
+    title: Blocks
+    type: heading
+    level: 2
+    collapsed: true
+
+  - id: blockquote-style
+    title: Blockquote
+    type: heading
+    level: 3
+    collapsed: true
+
+  - id: blockquote-text-color
+    title: Blockquote Text Color
+    type: variable-themed-color
+    default-light: '#000000'
+    default-dark: '#591202'
+    format: hex
+
+  - id: blockquote-background-color
+    title: Blockquote Background
+    type: variable-themed-color
+    default-light: '#f0f0f0'
+    default-dark: '#1b2b40'
+    format: hex
+
+  - id: blockquote-border-color
+    title: Blockquote Border
+    type: variable-themed-color
+    default-light: '#cccccc'
+    default-dark: '#8C6A03'
+    format: hex
+
+  - id: code-style
+    title: Code
+    type: heading
+    level: 3
+    collapsed: true
+
+  - id: inline-code-text-color
+    title: Inline Code Text Color
+    type: variable-themed-color
+    default-light: '#000000'
+    default-dark: '#F20CB5'
+    format: hex
+
+  - id: inline-code-background-color
+    title: Inline Code Background
+    type: variable-themed-color
+    default-light: '#eeeeee'
+    default-dark: '#0B2D48'
+    format: hex
+
+  - id: code-block-color
+    title: Code Block Text Color
+    type: variable-themed-color
+    default-light: '#000000'
+    default-dark: '#D9D9D9'
+    format: hex
+
+  - id: code-background-color
+    title: Code Block Background
+    type: variable-themed-color
+    default-light: '#f4f4f4'
+    default-dark: '#0B2D48'
+    format: hex
+
+  - id: links-style
+    title: Links and Tags
+    type: heading
+    level: 2
+    collapsed: true
+
+  - id: link-internal-color
+    title: Internal Link Color
+    type: variable-themed-color
+    default-light: '#0000ee'
+    default-dark: '#41BF9B'
+    format: hex
+
+  - id: link-external-color
+    title: External Link Color
+    type: variable-themed-color
+    default-light: '#0000ee'
+    default-dark: '#AABF0B'
+    format: hex
+
+  - id: emphasis-style
+    title: Emphasis
+    type: heading
+    level: 2
+    collapsed: true
+
+  - id: bold-color
+    title: Bold Text Color
+    type: variable-themed-color
+    default-light: '#000000'
+    default-dark: '#23A5D9'
+    format: hex
+
+  - id: emphasis-italic-color
+    title: Emphasis Italic Text Color
+    type: variable-themed-color
+    default-light: '#000000'
+    default-dark: '#03A696'
+    format: hex
+
+  - id: strikethrough-color
+    title: Strikethrough Text Color
+    type: variable-themed-color
+    default-light: '#000000'
+    default-dark: '#6093BF'
+    format: hex
+
+  - id: bolditalic-color
+    title: Bold + Italic Text Color
+    type: variable-themed-color
+    default-light: '#000000'
+    default-dark: '#07F2DB'
     format: hex
 */

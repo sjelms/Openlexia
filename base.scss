@@ -1,87 +1,143 @@
 /* base.scss */
-@import 'settings/fonts';
-@import 'settings/colors-dark';
-@import 'settings/style-settings.scss';
+@use "sass:color";
+@use 'settings/fonts';
+@use 'settings/colors-dark';
+@use 'settings/style-settings.scss';
 
 /* Apply background and base text color */
 body.theme-dark {
-  background-color: $background;
-  color: $text;
+  background-color: colors-dark.$background;
+  color: colors-dark.$text;
+
+  /* === Heading Variables for Style Settings plugin === */
+  --heading-1-color: var(--heading-1-color, #D96C0D);
+  --heading-1-line-height: var(--heading-1-line-height, 1.2);
+  --heading-1-spacing-after: var(--heading-1-spacing-after, 0.75em);
+
+  --heading-2-color: var(--heading-2-color, #F25C05);
+  --heading-2-line-height: var(--heading-2-line-height, 1.2);
+  --heading-2-spacing-after: var(--heading-2-spacing-after, 0.75em);
+
+  --heading-3-color: var(--heading-3-color, #F29F05);
+  --heading-3-line-height: var(--heading-3-line-height, 1.2);
+  --heading-3-spacing-after: var(--heading-3-spacing-after, 0.75em);
+
+  --heading-4-color: var(--heading-4-color, #BF6B04);
+  --heading-4-line-height: var(--heading-4-line-height, 1.2);
+  --heading-4-spacing-after: var(--heading-4-spacing-after, 0.75em);
+
+  --heading-5-color: var(--heading-5-color, #B149BF);
+  --heading-5-line-height: var(--heading-5-line-height, 1.2);
+  --heading-5-spacing-after: var(--heading-5-spacing-after, 0.75em);
+
+  --heading-6-color: var(--heading-6-color, #F2E63D);
+  --heading-6-line-height: var(--heading-6-line-height, 1.2);
+  --heading-6-spacing-after: var(--heading-6-spacing-after, 0.75em);
 }
 
 /* === Body Text Leading & Line Spacing === */
 .markdown-preview-view,
 .markdown-reading-view,
-.markdown-source-view .cm-content,
+.markdown-source-view,
+.cm-content,
 .cm-s-obsidian .cm-content {
-  color: var(--body-text-color, $text);
+  color: var(--body-text-color, colors-dark.$text);
   line-height: var(--body-line-height, 1.7); // Adjust for leading
   letter-spacing: var(--body-letter-spacing, 0.015em); // Optional: subtle tracking
   font-size: var(--body-font-size, 22px);
 }
 
 /* === Emphasis === */
-strong {
+.markdown-preview-view strong,
+.markdown-source-view strong,
+.markdown-reading-view strong,
+.cm-content strong,
+.cm-s-obsidian strong {
   font-weight: bold;
-  color: $bold-color;
+  color: var(--emphasis-bold-color, colors-dark.$bold-color);
 }
 
-em {
+.markdown-preview-view em,
+.markdown-source-view em,
+.markdown-reading-view em,
+.cm-content em,
+.cm-s-obsidian em {
   font-style: italic;
-  color: $italic-color;
+  color: var(--emphasis-italic-color, colors-dark.$italic-color);
 }
 
-strong em,
-em strong {
+.markdown-preview-view strong em,
+.markdown-source-view strong em,
+.markdown-reading-view strong em,
+.markdown-preview-view em strong,
+.markdown-source-view em strong,
+.markdown-reading-view em strong,
+.cm-content strong.em,
+.cm-content em.strong,
+.cm-s-obsidian strong.em,
+.cm-s-obsidian em.strong {
   font-weight: bold;
   font-style: italic;
-  color: $bolditalic-color;
+  color: var(--emphasis-bolditalic-color, colors-dark.$bolditalic-color);
 }
 
-del {
+.markdown-preview-view del,
+.markdown-source-view del,
+.markdown-reading-view del,
+.cm-content del,
+.cm-s-obsidian del {
   text-decoration: line-through;
-  color: $strikethrough-color;
+  color: var(--emphasis-strikethrough-color, colors-dark.$strikethrough-color);
 }
 
 /* === Blockquotes === */
-blockquote,
-.markdown-rendered blockquote,
+.markdown-preview-view blockquote,
+.markdown-source-view blockquote,
+.markdown-reading-view blockquote,
+.cm-content blockquote,
 .cm-s-obsidian .HyperMD-quote {
-  color: $blockquote-color;
-  // background-color: $blockquote-background-color;
-  border-inline-start: 4px solid $blockquote-border;
+  color: var(--blockquote-text-color, colors-dark.$blockquote-color);
+  background-color: var(--blockquote-background-color, colors-dark.$blockquote-background-color);
+  border-inline-start: 4px solid var(--blockquote-border-color, colors-dark.$blockquote-border);
   padding-left: 1em;
   margin: 1em 0;
 }
 
 .cm-s-obsidian span.cm-quote {
-  color: $blockquote-color;
+  color: var(--blockquote-text-color, colors-dark.$blockquote-color);
 }
 
 /* === Code === */
-code,
-.markdown-rendered code,
-.cm-inline-code,
-.cm-s-obsidian span.cm-inline-code,
-.markdown-source-view .inline-code,
+.markdown-preview-view code,
+.markdown-source-view code,
 .markdown-reading-view code,
-.markdown-rendered .inline-code {
-  background-color: $inline-code-bg;
-  color: $inline-code-text;
+.cm-content code,
+.cm-s-obsidian code,
+.markdown-preview-view .inline-code,
+.markdown-source-view .inline-code,
+.markdown-reading-view .inline-code,
+.cm-content .inline-code,
+.cm-s-obsidian .inline-code {
+  background-color: var(--inline-code-background-color, colors-dark.$inline-code-bg);
+  color: var(--inline-code-text-color, colors-dark.$inline-code-text);
   padding: 2px 4px;
   border-radius: 4px;
   font-family: inherit;
 }
 
-pre,
+.markdown-preview-view pre,
+.markdown-source-view pre,
+.markdown-reading-view pre,
+.cm-content pre,
+.cm-s-obsidian pre,
 .HyperMD-codeblock,
 .HyperMD-codeblock-bg,
 .HyperMD-codeblock-begin,
 .HyperMD-codeblock-end,
-.markdown-rendered pre,
+.markdown-preview-view .markdown-rendered pre,
 .cm-s-obsidian div.HyperMD-codeblock-bg {
-  background-color: $code-bg !important;
-  color: $code-text !important;
+  background-color: var(--code-background-color, colors-dark.$code-bg) !important;
+  color: var(--code-text-color, colors-dark.$code-text) !important;
   padding: 2em;
   line-height: 1.8em; // Ensure it matches or exceeds flair size
   border-radius: 0px;
@@ -89,7 +145,7 @@ pre,
 }
 
 /* === Code Block Flair Adjustment === */
-.code-block-flair {
+.cm-code-block-flair {
   height: 1.5em; // adjust as needed
   line-height: 1.5em; // match height to prevent overflow
   padding: 0;
@@ -102,15 +158,15 @@ pre,
 }
 
 // === Code Block Flair SVG Icon Customization ===
-.code-block-flair svg {
-  stroke: $icon-color;
+.cm-code-block-flair svg {
+  stroke: var(--code-icon-color, colors-dark.$icon-color);
   width: 1em;
   height: 1em;
   transition: stroke 0.2s ease;
 }
 
-.code-block-flair:hover svg {
-  stroke: lighten($icon-color, 10%);
+.cm-code-block-flair:hover svg {
+  filter: brightness(1.2);
 }
 
 /* === Lists === */
@@ -124,47 +180,103 @@ pre,
   font-weight: normal;
 }
 
-.list-bullet {
-  color: var(--list-marker-color, $list-marker-color) !important;
+.list-bullet,
+.markdown-preview-view .list-bullet,
+.markdown-source-view .list-bullet,
+.markdown-reading-view .list-bullet,
+.cm-content .list-bullet,
+.cm-s-obsidian .list-bullet {
+  color: var(--list-marker-color, colors-dark.$list-marker-color) !important;
 }
 
-
-.cm-formatting-list-ul .list-bullet {
+.cm-formatting-list-ul .list-bullet,
+.markdown-preview-view .cm-formatting-list-ul .list-bullet,
+.markdown-source-view .cm-formatting-list-ul .list-bullet,
+.markdown-reading-view .cm-formatting-list-ul .list-bullet,
+.cm-content .cm-formatting-list-ul .list-bullet,
+.cm-s-obsidian .cm-formatting-list-ul .list-bullet {
   font-family: inherit;
   color: transparent !important;
   text-decoration: none !important;
   position: relative;
 }
 
-.cm-formatting-list-ul .list-bullet::before {
+.cm-formatting-list-ul .list-bullet::before,
+.markdown-preview-view .cm-formatting-list-ul .list-bullet::before,
+.markdown-source-view .cm-formatting-list-ul .list-bullet::before,
+.markdown-reading-view .cm-formatting-list-ul .list-bullet::before,
+.cm-content .cm-formatting-list-ul .list-bullet::before,
+.cm-s-obsidian .cm-formatting-list-ul .list-bullet::before {
   content: '•';
   font-family: "Fira Code", monospace;
-  color: var(--list-marker-color, $list-marker-color);
+  color: var(--list-marker-color, colors-dark.$list-marker-color);
   position: absolute;
   left: 0;
 }
+.markdown-preview-view .list-bullet::before,
+.markdown-source-view .list-bullet::before,
+.markdown-reading-view .list-bullet::before,
+.cm-content .list-bullet::before,
+.cm-s-obsidian .list-bullet::before {
+  color: var(--unordered-list-color, colors-dark.$list-marker-color) !important;
+}
+
 .cm-s-obsidian .list-bullet {
   font-family: "Fira Code", monospace !important;
-  color: var(--list-marker-color, $list-marker-color) !important;
+  color: var(--unordered-list-color, colors-dark.$list-marker-color) !important;
 }
 
 .cm-formatting-list-ol,
 .cm-s-obsidian .cm-formatting-list-ol,
 .cm-s-obsidian .list-number,
 span.cm-formatting-list-ol,
-span.list-number {
-  color: var(--list-marker-color, $list-marker-color) !important;
+span.list-number,
+.markdown-preview-view .cm-formatting-list-ol,
+.markdown-source-view .cm-formatting-list-ol,
+.markdown-reading-view .cm-formatting-list-ol,
+.markdown-preview-view .list-number,
+.markdown-source-view .list-number,
+.markdown-reading-view .list-number,
+.cm-content .cm-formatting-list-ol,
+.cm-content .list-number,
+.cm-s-obsidian .cm-formatting-list-ol,
+.cm-s-obsidian .list-number {
+  color: var(--list-marker-color, colors-dark.$list-marker-color) !important;
+}
+
+.markdown-preview-view .list-number,
+.markdown-source-view .list-number,
+.markdown-reading-view .list-number,
+.cm-content .list-number,
+.cm-s-obsidian .list-number {
+  color: var(--ordered-list-color, colors-dark.$list-marker-color) !important;
+}
+
+.cm-s-obsidian .list-number {
+  color: var(--ordered-list-color, colors-dark.$list-marker-color) !important;
 }
 
 .markdown-preview-view ol > li::marker,
 .markdown-source-view ol > li::marker,
-.markdown-reading-view ol > li::marker {
-  color: var(--list-marker-color, $list-marker-color) !important;
+.markdown-reading-view ol > li::marker,
+.cm-content ol > li::marker,
+.cm-s-obsidian ol > li::marker {
+  color: var(--list-marker-color, colors-dark.$list-marker-color) !important;
 }
 
 ul li,
-ol li {
-  color: $text;
+ol li,
+.markdown-preview-view ul li,
+.markdown-source-view ul li,
+.markdown-reading-view ul li,
+.markdown-preview-view ol li,
+.markdown-source-view ol li,
+.markdown-reading-view ol li,
+.cm-content ul li,
+.cm-content ol li,
+.cm-s-obsidian ul li,
+.cm-s-obsidian ol li {
+  color: colors-dark.$text;
 }
 
 /* Added list customization using Style Settings plugin variables */
@@ -173,7 +285,11 @@ ol li {
 .markdown-source-view ul,
 .markdown-preview-view ol,
 .markdown-reading-view ol,
-.markdown-source-view ol {
+.markdown-source-view ol,
+.cm-content ul,
+.cm-content ol,
+.cm-s-obsidian ul,
+.cm-s-obsidian ol {
   padding-left: var(--list-indent, 2em);
   margin-bottom: var(--list-spacing, 0.5em);
 }
@@ -183,75 +299,106 @@ ol li {
 .markdown-source-view ul > li,
 .markdown-preview-view ol > li,
 .markdown-reading-view ol > li,
-.markdown-source-view ol > li {
+.markdown-source-view ol > li,
+.cm-content ul > li,
+.cm-content ol > li,
+.cm-s-obsidian ul > li,
+.cm-s-obsidian ol > li {
   margin-bottom: var(--list-spacing, 0.5em);
 }
 
 .markdown-preview-view ol,
 .markdown-reading-view ol,
-.markdown-source-view ol {
+.markdown-source-view ol,
+.cm-content ol,
+.cm-s-obsidian ol {
   list-style-type: var(--list-numbered-style, decimal);
 }
 
 /* === Checkboxes === */
-input[type="checkbox"] {
-  accent-color: $checkbox-unchecked;
+.markdown-preview-view input[type="checkbox"],
+.markdown-source-view input[type="checkbox"],
+.markdown-reading-view input[type="checkbox"],
+.cm-content input[type="checkbox"],
+.cm-s-obsidian input[type="checkbox"] {
+  accent-color: var(--checkbox-color, colors-dark.$checkbox-unchecked);
 }
 
-input[type="checkbox"]:checked {
-  accent-color: $checkbox-checked;
+.markdown-preview-view input[type="checkbox"]:checked,
+.markdown-source-view input[type="checkbox"]:checked,
+.markdown-reading-view input[type="checkbox"]:checked,
+.cm-content input[type="checkbox"]:checked,
+.cm-s-obsidian input[type="checkbox"]:checked {
+  accent-color: var(--checkbox-color, colors-dark.$checkbox-checked);
 }
 
 /* === Links === */
- a.internal-link,
+.markdown-preview-view a.internal-link,
+.markdown-source-view a.internal-link,
+.markdown-reading-view a.internal-link,
+.cm-content a.internal-link,
+.cm-s-obsidian a.internal-link,
 .cm-hmd-internal-link a,
 .cm-link a.internal-link,
 .markdown-rendered a.internal-link {
-  color: var(--link-internal-color, $link-internal-color) !important;
+  color: var(--link-internal-color, colors-dark.$link-internal-color) !important;
   text-decoration: none !important;
 }
 
 // External link styling: high specificity and coverage
-a.external-link,
+.markdown-preview-view a.external-link,
+.markdown-source-view a.external-link,
+.markdown-reading-view a.external-link,
+.cm-content a.external-link,
+.cm-s-obsidian a.external-link,
 .cm-url.external-link,
 .cm-link a:not(.internal-link),
 .markdown-rendered a.external-link,
 .markdown-rendered a:not(.internal-link) {
-  color: var(--link-external-color, $link-external-color) !important;
+  color: var(--link-external-color, colors-dark.$link-external-color) !important;
   text-decoration: none !important;
 }
 
 /* Hover styles */
-a.internal-link:hover,
+.markdown-preview-view a.internal-link:hover,
+.markdown-source-view a.internal-link:hover,
+.markdown-reading-view a.internal-link:hover,
+.cm-content a.internal-link:hover,
+.cm-s-obsidian a.internal-link:hover,
 .cm-hmd-internal-link a:hover,
 .cm-link a.internal-link:hover,
 .markdown-rendered a.internal-link:hover {
-  color: var(--link-internal-color, $link-internal-color) !important;
+  color: var(--link-internal-hover-color, colors-dark.$link-internal-color) !important;
   text-decoration: underline;
 }
 
-a.external-link:hover,
+.markdown-preview-view a.external-link:hover,
+.markdown-source-view a.external-link:hover,
+.markdown-reading-view a.external-link:hover,
+.cm-content a.external-link:hover,
+.cm-s-obsidian a.external-link:hover,
 .cm-url.external-link:hover,
 .cm-link a:not(.internal-link):hover,
 .markdown-rendered a.external-link:hover,
 .markdown-rendered a:not(.internal-link):hover {
-  color: var(--link-external-color, $link-external-color) !important;
+  color: var(--link-external-hover-color, colors-dark.$link-external-color) !important;
   text-decoration: underline;
 }
 
 /* === Headings === */
-.cm-header-1 { color: $h1-color; }
-.cm-header-2 { color: $h2-color; }
-.cm-header-3 { color: $h3-color; }
-.cm-header-4 { color: $h4-color; }
-.cm-header-5 { color: $h5-color; }
-.cm-header-6 { color: $h6-color; }
+.cm-header-1 { color: colors-dark.$h1-color; }
+.cm-header-2 { color: colors-dark.$h2-color; }
+.cm-header-3 { color: colors-dark.$h3-color; }
+.cm-header-4 { color: colors-dark.$h4-color; }
+.cm-header-5 { color: colors-dark.$h5-color; }
+.cm-header-6 { color: colors-dark.$h6-color; }
 
 .markdown-preview-view h1,
 .markdown-source-view h1,
 .markdown-reading-view h1,
-.cm-content h1 {
-  color: var(--heading-1-color, $h1-color);
+.cm-content h1,
+.cm-s-obsidian .cm-header-1 {
+  color: var(--heading-1-color, colors-dark.$h1-color);
   line-height: var(--heading-1-line-height, 1.2);
   margin-bottom: var(--heading-1-spacing-after, 0.75em);
 }
@@ -259,8 +406,9 @@ a.external-link:hover,
 .markdown-preview-view h2,
 .markdown-source-view h2,
 .markdown-reading-view h2,
-.cm-content h2 {
-  color: var(--heading-2-color, $h2-color);
+.cm-content h2,
+.cm-s-obsidian .cm-header-2 {
+  color: var(--heading-2-color, colors-dark.$h2-color);
   line-height: var(--heading-2-line-height, 1.2);
   margin-bottom: var(--heading-2-spacing-after, 0.75em);
 }
@@ -268,8 +416,9 @@ a.external-link:hover,
 .markdown-preview-view h3,
 .markdown-source-view h3,
 .markdown-reading-view h3,
-.cm-content h3 {
-  color: var(--heading-3-color, $h3-color);
+.cm-content h3,
+.cm-s-obsidian .cm-header-3 {
+  color: var(--heading-3-color, colors-dark.$h3-color);
   line-height: var(--heading-3-line-height, 1.2);
   margin-bottom: var(--heading-3-spacing-after, 0.75em);
 }
@@ -277,8 +426,9 @@ a.external-link:hover,
 .markdown-preview-view h4,
 .markdown-source-view h4,
 .markdown-reading-view h4,
-.cm-content h4 {
-  color: var(--heading-4-color, $h4-color);
+.cm-content h4,
+.cm-s-obsidian .cm-header-4 {
+  color: var(--heading-4-color, colors-dark.$h4-color);
   line-height: var(--heading-4-line-height, 1.2);
   margin-bottom: var(--heading-4-spacing-after, 0.75em);
 }
@@ -286,8 +436,9 @@ a.external-link:hover,
 .markdown-preview-view h5,
 .markdown-source-view h5,
 .markdown-reading-view h5,
-.cm-content h5 {
-  color: var(--heading-5-color, $h5-color);
+.cm-content h5,
+.cm-s-obsidian .cm-header-5 {
+  color: var(--heading-5-color, colors-dark.$h5-color);
   line-height: var(--heading-5-line-height, 1.2);
   margin-bottom: var(--heading-5-spacing-after, 0.75em);
 }
@@ -295,38 +446,39 @@ a.external-link:hover,
 .markdown-preview-view h6,
 .markdown-source-view h6,
 .markdown-reading-view h6,
-.cm-content h6 {
-  color: var(--heading-6-color, $h6-color);
+.cm-content h6,
+.cm-s-obsidian .cm-header-6 {
+  color: var(--heading-6-color, colors-dark.$h6-color);
   line-height: var(--heading-6-line-height, 1.2);
   margin-bottom: var(--heading-6-spacing-after, 0.75em);
 }
 
 /* === Emphasis in Editor View (CodeMirror) === */
 .cm-strong {
-  color: $bold-color;
+  color: var(--emphasis-bold-color, colors-dark.$bold-color);
 }
 
 .cm-em {
-  color: $italic-color;
+  color: var(--emphasis-italic-color, colors-dark.$italic-color);
 }
 
 .cm-strong.cm-em,
 .cm-em.cm-strong {
-  color: $bolditalic-color;
+  color: var(--emphasis-bolditalic-color, colors-dark.$bolditalic-color);
 }
 
 .cm-strikethrough {
-  color: $strikethrough-color;
+  color: var(--emphasis-strikethrough-color, colors-dark.$strikethrough-color);
 }
 
 
 .cm-quote {
-  color: $blockquote-color;
+  color: var(--blockquote-text-color, colors-dark.$blockquote-color);
 }
 
 .HyperMD-quote:not(.HyperMD-quote-1) {
-  border-left: 4px solid $blockquote-border;
-  background-color: $blockquote-background-color;
+  border-left: 4px solid var(--blockquote-border-color, colors-dark.$blockquote-border);
+  background-color: var(--blockquote-background-color, colors-dark.$blockquote-background-color);
   padding-left: 1em;
   margin: 1em 0;
 }
