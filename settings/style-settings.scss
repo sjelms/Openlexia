@@ -242,7 +242,7 @@ settings:
       - label: "Lower Roman"
         value: lower-roman
       - label: "Upper Roman"
-        value: upper-roman"
+        value: upper-roman
 
   - id: ordered-list-color
     title: Ordered List Number Color
@@ -304,7 +304,7 @@ settings:
     default-dark: '#0B2D48'
     format: hex
 
-  - id: code-block-color
+  - id: code-text-color
     title: Code Block Text Color
     type: variable-themed-color
     default-light: '#000000'
@@ -316,6 +316,13 @@ settings:
     type: variable-themed-color
     default-light: '#f4f4f4'
     default-dark: '#0B2D48'
+    format: hex
+
+  - id: code-icon-color
+    title: Code Icon Color
+    type: variable-themed-color
+    default-light: '#CCCCCC'
+    default-dark: '#CCCCCC'
     format: hex
 
   - id: links-style
@@ -338,13 +345,27 @@ settings:
     default-dark: '#AABF0B'
     format: hex
 
+  - id: link-internal-hover-color
+    title: Internal Link Hover Color
+    type: variable-themed-color
+    default-light: '#0000ee'
+    default-dark: '#41BF9B'
+    format: hex
+
+  - id: link-external-hover-color
+    title: External Link Hover Color
+    type: variable-themed-color
+    default-light: '#0000ee'
+    default-dark: '#AABF0B'
+    format: hex
+
   - id: emphasis-style
     title: Emphasis
     type: heading
     level: 2
     collapsed: true
 
-  - id: bold-color
+  - id: emphasis-bold-color
     title: Bold Text Color
     type: variable-themed-color
     default-light: '#000000'
@@ -358,17 +379,17 @@ settings:
     default-dark: '#03A696'
     format: hex
 
-  - id: strikethrough-color
+  - id: emphasis-strikethrough-color
     title: Strikethrough Text Color
     type: variable-themed-color
     default-light: '#000000'
     default-dark: '#6093BF'
     format: hex
 
-  - id: bolditalic-color
+  - id: emphasis-bolditalic-color
     title: Bold + Italic Text Color
     type: variable-themed-color
     default-light: '#000000'
     default-dark: '#07F2DB'
     format: hex
-*/
+    */
