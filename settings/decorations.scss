@@ -1,0 +1,49 @@
+/* decorations.scss */
+@use 'colors-dark';
+
+/* === Lists (AnuPpuccin-style) === */
+.anp-list-toggle ul li::marker,
+.anp-list-toggle ol li::marker {
+    color: var(--list-marker-color, #{colors-dark.$list-marker-color}) !important;
+}
+
+.anp-list-toggle ol {
+    list-style-type: var(--list-numbered-style) !important;
+}
+
+/* Nested-level bullet customization (AnuPpuccin approach) */
+.anp-list-toggle div.el-ul > ul.has-list-bullet > li > ul.has-list-bullet > li > .list-bullet::after {
+    border: 1px solid var(--list-marker-color);
+    background-color: transparent;
+    width: var(--list-bullet-size, 0.5em);
+    height: var(--list-bullet-size, 0.5em);
+    border-radius: var(--list-bullet-radius, 50%);
+}
+.anp-list-toggle div.el-ul > ul.has-list-bullet > li > ul.has-list-bullet > li > ul.has-list-bullet > li > .list-bullet::after {
+    background-color: var(--list-marker-color);
+    width: var(--list-bullet-size, 0.5em);
+    height: var(--list-bullet-size, 0.5em);
+    border-radius: var(--list-bullet-radius, 50%);
+}
+
+/* === Preview-specific list styling === */
+.markdown-preview-view ul {
+  list-style-type: disc !important;
+  padding-inline-start: var(--list-indent-editing, var(--list-indent, 2em)) !important;
+  margin: var(--list-spacing, 0.75em) 0 !important;
+}
+.markdown-preview-view ol {
+  list-style-type: var(--list-numbered-style, decimal) !important;
+  padding-inline-start: var(--list-indent-editing, var(--list-indent, 2em)) !important;
+  margin: var(--list-spacing, 0.75em) 0 !important;
+}
+.markdown-preview-view li::marker {
+    color: var(--list-marker-color, #{colors-dark.$list-marker-color}) !important;
+}
+.markdown-preview-view ul ul,
+.markdown-preview-view ol ol {
+  padding-inline-start: calc(
+    var(--list-indent, 2em)
+    + var(--nested-list-indent, 1em)
+  ) !important;
+}

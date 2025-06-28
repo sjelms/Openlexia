@@ -214,8 +214,26 @@ settings:
     default: 0.5
     format: em
 
-  - id: unordered-list-color
-    title: Unordered List Marker Color
+  - id: list-indent-source
+    title: List Indentation (Source/Edit pane)
+    type: variable-number
+    default: 2
+    format: em
+
+  - id: list-indent-editing
+    title: List Indentation (Live Preview pane)
+    type: variable-number
+    default: 2
+    format: em
+
+  - id: nested-list-indent
+    title: Nested List Indent
+    type: variable-number
+    default: 1
+    format: em
+
+  - id: list-marker-color
+    title: List Marker Color
     type: variable-themed-color
     default-light: '#444444'
     default-dark: '#0B9EBF'
@@ -244,12 +262,18 @@ settings:
       - label: "Upper Roman"
         value: upper-roman
 
-  - id: ordered-list-color
-    title: Ordered List Number Color
-    type: variable-themed-color
-    default-light: '#000000'
-    default-dark: '#0B9EBF'
-    format: hex
+
+  - id: list-bullet-size
+    title: List Bullet Size
+    type: variable-number
+    default: 0.5
+    format: em
+
+  - id: list-bullet-radius
+    title: List Bullet Radius
+    type: variable-number
+    default: 50
+    format: percent
 
   - id: blocks-style
     title: Blocks
