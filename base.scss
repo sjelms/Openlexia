@@ -33,6 +33,13 @@ body.theme-dark {
   --heading-6-color: var(--heading-6-color, #F2E63D);
   --heading-6-line-height: var(--heading-6-line-height, 1.2);
   --heading-6-spacing-after: var(--heading-6-spacing-after, 0.75em);
+
+  /* List styling variables */
+  --list-marker-color:      var(--list-marker-color, colors-dark.$list-marker-color);
+  --unordered-list-style:   var(--unordered-list-style, disc);
+  --ordered-list-style:     var(--ordered-list-style, decimal);
+  --list-indent:            var(--list-indent, 2em);
+  --nested-list-indent:     var(--nested-list-indent, 1em);
 }
 
 /* === Body Text Leading & Line Spacing === */
@@ -365,19 +372,134 @@ span.list-number,
 
 /* === Lists === */
 
+// ─── List styling for preview ──────────────────────────────────────────────────
+
+/* Base rules for all lists */
+ul,
+ol {
+  margin: 0.75em 0;
+  padding-inline-start: var(--list-indent, 2em);
+  list-style-position: outside;
+}
+
+/* Unordered lists use your “unordered‐list‐style” variable */
+ul {
+  list-style-type: var(--unordered-list-style, disc);
+}
+
+/* Ordered lists use your “ordered‐list‐style” variable */
+ol {
+  list-style-type: var(--ordered-list-style, decimal);
+}
+
+/* Marker (bullet/number) color driven by your panel setting */
+li::marker {
+  color: var(--list-marker-color, currentColor);
+}
+
+/* Nested lists get an extra indent layer */
+ul ul,
+ol ol {
+  padding-inline-start: calc(var(--list-indent, 2em) + var(--nested-list-indent, 1em));
+}
+
+
+/* Obsidian view-specific list overrides */
+.markdown-preview-view ul,
+.markdown-source-view ul,
+.markdown-reading-view ul,
+.cm-content ul,
+.cm-s-obsidian ul {
+  list-style-type: var(--unordered-list-style, disc) !important;
+  padding-inline-start: var(--list-indent, 2em) !important;
+}
+
+.markdown-preview-view ol,
+.markdown-source-view ol,
+.markdown-reading-view ol,
+.cm-content ol,
+.cm-s-obsidian ol {
+  list-style-type: var(--ordered-list-style, decimal) !important;
+  padding-inline-start: var(--list-indent, 2em) !important;
+}
+
+.markdown-preview-view ul > li::marker,
+.markdown-source-view ul > li::marker,
+.markdown-reading-view ul > li::marker,
+.cm-content ul > li::marker,
+.cm-s-obsidian ul > li::marker,
+.markdown-preview-view ol > li::marker,
+.markdown-source-view ol > li::marker,
+.markdown-reading-view ol > li::marker,
+.cm-content ol > li::marker,
+.cm-s-obsidian ol > li::marker {
+  color: var(--list-marker-color, currentColor) !important;
+}
+
+/* External links in list items */
+.markdown-preview-view li a.external-link,
+.markdown-source-view li a.external-link,
+.markdown-reading-view li a.external-link,
+.cm-content li a.external-link,
+.cm-s-obsidian li a.external-link {
+  color: var(--link-external-color, colors-dark.$link-external-color) !important;
+}
+
+
+/* Preview-rendered list overrides */
+.markdown-preview-view .markdown-rendered ul,
+.markdown-preview-view .markdown-rendered ol {
+  list-style-type: var(--unordered-list-style, disc) !important;
+  padding-inline-start: var(--list-indent, 2em) !important;
+  margin-bottom: var(--list-spacing, 0.75em) !important;
+}
+
+.markdown-preview-view .markdown-rendered ul > li::marker,
+.markdown-preview-view .markdown-rendered ol > li::marker {
+  color: var(--list-marker-color, currentColor) !important;
+}
+
+.markdown-preview-view .markdown-rendered ul ul,
+.markdown-preview-view .markdown-rendered ol ol {
+  padding-inline-start: calc(var(--list-indent, 2em) + var(--nested-list-indent, 1em)) !important;
+}
+
+
+
+
 // === List Padding and Margin for all Views ===
 .markdown-preview-view ul,
-.markdown-preview-view ol,
-.markdown-reading-view ul,
-.markdown-reading-view ol,
 .markdown-source-view ul,
-.markdown-source-view ol,
+.markdown-reading-view ul,
 .cm-content ul,
+.cm-s-obsidian ul {
+  list-style-type: var(--unordered-list-style, disc) !important;
+  padding-left: var(--list-indent, 2em) !important;
+  margin-bottom: var(--list-spacing, 0.5em) !important;
+}
+
+.markdown-preview-view ol,
+.markdown-source-view ol,
+.markdown-reading-view ol,
 .cm-content ol,
-.cm-s-obsidian ul,
 .cm-s-obsidian ol {
-  padding-left: var(--list-indent, 2em);
-  margin-bottom: var(--list-spacing, 0.5em);
+  list-style-type: var(--ordered-list-style, decimal) !important;
+  padding-left: var(--list-indent, 2em) !important;
+  margin-bottom: var(--list-spacing, 0.5em) !important;
+}
+
+// Nested list indent for all views
+.markdown-preview-view ul ul,
+.markdown-source-view ul ul,
+.markdown-reading-view ul ul,
+.cm-content ul ul,
+.cm-s-obsidian ul ul,
+.markdown-preview-view ol ol,
+.markdown-source-view ol ol,
+.markdown-reading-view ol ol,
+.cm-content ol ol,
+.cm-s-obsidian ol ol {
+  padding-left: calc(var(--list-indent, 2em) + var(--nested-list-indent, 1em)) !important;
 }
 
 // === List Item Margin for all Views ===
@@ -593,5 +715,27 @@ span.list-number,
 
 /* (Handled above for marker and formatting list color) */
 
-/* List adjustments, display in reader not in preview */
 
+
+
+
+/* === Preview-specific list styling === */
+.markdown-preview-view ul {
+  list-style-type: disc !important;
+  padding-inline-start: var(--list-indent-editing, var(--list-indent, 2em)) !important;
+  margin: var(--list-spacing, 0.75em) 0 !important;
+}
+.markdown-preview-view ol {
+  list-style-type: var(--list-numbered-style, decimal) !important;
+  padding-inline-start: var(--list-indent-editing, var(--list-indent, 2em)) !important;
+  margin: var(--list-spacing, 0.75em) 0 !important;
+}
+.markdown-preview-view li::marker {
+  color: var(--list-marker-color, currentColor) !important;
+}
+.markdown-preview-view ul ul,
+.markdown-preview-view ol ol {
+  padding-inline-start: calc(
+    var(--list-indent, 2em) + var(--nested-list-indent, 1em)
+  ) !important;
+}
