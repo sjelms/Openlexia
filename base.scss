@@ -5,6 +5,37 @@
 @use 'settings/style-settings.scss';
 @use 'settings/decorations.scss';
 
+/* --- Links & Tags Variables --- */
+:root {
+  /* Links */
+  --link-internal-color: #0000ee;
+  --link-internal-hover-color: #0000ee;
+  --link-external-color: #0000ee;
+  --link-external-hover-color: #0000ee;
+
+  /* Tags */
+  --tag-color: #5460ab; /* light mode default */
+  --tag-hover-color: #dc388f; /* light mode default */
+  --tag-background: none;
+  --tag-background-hover: none;
+  --tag-padding-x: 0em;
+  --tag-padding-y: 0em;
+  --tag-border-width: 0px;
+  --tag-radius: 0px;
+}
+
+.theme-dark {
+  /* Links */
+  --link-internal-color: #41BF9B;
+  --link-internal-hover-color: #41BF9B;
+  --link-external-color: #AABF0B;
+  --link-external-hover-color: #AABF0B;
+
+  /* Tags */
+  --tag-color: #8c96d9; /* dark mode default */
+  --tag-hover-color: #ed5aa8; /* dark mode default */
+}
+
 /* Apply background and base text color */
 body.theme-dark {
   background-color: colors-dark.$background;
@@ -228,6 +259,51 @@ body.theme-dark {
 .cm-link a.internal-link:hover,
 .markdown-rendered a.internal-link:hover {
   color: var(--link-internal-hover-color, colors-dark.$link-internal-color) !important;
+  text-decoration: underline;
+}
+
+/* --- Tags --- */
+body .tag,
+body .cm-s-obsidian span.cm-hashtag {
+  color: var(--tag-color);
+  background: var(--tag-background);
+  border: var(--tag-border-width) solid var(--tag-color);
+  padding: var(--tag-padding-y) var(--tag-padding-x);
+  border-radius: var(--tag-radius) !important;
+  vertical-align: baseline;
+}
+
+body .tag:hover,
+body .cm-s-obsidian span.cm-hashtag:hover {
+  color: var(--tag-hover-color);
+  background: var(--tag-background-hover);
+  border-color: var(--tag-hover-color);
+}
+
+/* Tags within Properties/Frontmatter editor */
+body .multi-select-pill {
+  color: var(--tag-color);
+  background: var(--tag-background);
+  border: var(--tag-border-width) solid var(--tag-color);
+  padding: var(--tag-padding-y) var(--tag-padding-x);
+  border-radius: var(--tag-radius) !important;
+
+  .multi-select-pill-remove-button {
+    display: none;
+  }
+}
+
+body .multi-select-pill:hover {
+  color: var(--tag-hover-color);
+  background: var(--tag-background-hover);
+  border-color: var(--tag-hover-color);
+}
+
+.tag-decoration-hover .markdown-preview-view .tag:hover,
+.tag-decoration-hover .markdown-source-view .tag:hover,
+.tag-decoration-hover .markdown-reading-view .tag:hover,
+.tag-decoration-hover .markdown-rendered .tag:hover,
+.tag-decoration-hover .cm-s-obsidian span.cm-hashtag:hover {
   text-decoration: underline;
 }
 

@@ -355,20 +355,13 @@ settings:
     level: 2
     collapsed: true
 
+  # --- Internal Links ---
   - id: link-internal-color
     title: Internal Link Color
     type: variable-themed-color
     default-light: '#0000ee'
     default-dark: '#41BF9B'
     format: hex
-
-  - id: link-external-color
-    title: External Link Color
-    type: variable-themed-color
-    default-light: '#0000ee'
-    default-dark: '#AABF0B'
-    format: hex
-
   - id: link-internal-hover-color
     title: Internal Link Hover Color
     type: variable-themed-color
@@ -376,12 +369,83 @@ settings:
     default-dark: '#41BF9B'
     format: hex
 
+  # --- External Links ---
+  - id: link-external-color
+    title: External Link Color
+    type: variable-themed-color
+    default-light: '#0000ee'
+    default-dark: '#AABF0B'
+    format: hex
   - id: link-external-hover-color
     title: External Link Hover Color
     type: variable-themed-color
     default-light: '#0000ee'
     default-dark: '#AABF0B'
     format: hex
+
+  # --- Tags ---
+  - id: tag-color
+    title: Tag Color
+    type: variable-themed-color
+    default-light: '#5460ab' # Example from Shimmering
+    default-dark: '#8c96d9' # Example from Shimmering
+    format: hex
+  - id: tag-hover-color
+    title: Tag Hover Color
+    type: variable-themed-color
+    default-light: '#dc388f' # Example from Shimmering
+    default-dark: '#ed5aa8' # Example from Shimmering
+    format: hex
+  - id: tag-decoration-hover
+    title: "Tags: Underline on hover"
+    type: class-toggle
+    default: true
+  - id: tag-background
+    title: "Tags: Background Color"
+    description: To have no background, type "none" into the field or reset it.
+    type: variable-themed-color
+    default-light: 'none'
+    default-dark: 'none'
+    format: hex
+  - id: tag-background-hover
+    title: "Tags: Background Hover Color"
+    description: To have no background on hover, type "none" into the field or reset it.
+    type: variable-themed-color
+    default-light: 'none'
+    default-dark: 'none'
+    format: hex
+  - id: tag-padding-x
+    title: "Tags: Horizontal Padding"
+    type: variable-number-slider
+    default: 0
+    min: 0
+    max: 1
+    step: 0.05
+    format: em
+  - id: tag-padding-y
+    title: "Tags: Vertical Padding"
+    type: variable-number-slider
+    default: 0
+    min: 0
+    max: 1
+    step: 0.05
+    format: em
+  - id: tag-border-width
+    title: "Tags: Border Width"
+    type: variable-number-slider
+    default: 0
+    min: 0
+    max: 3
+    step: 1
+    format: px
+  - id: tag-radius
+    title: "Tags: Border Radius (Roundness)"
+    type: variable-number-slider
+    default: 0
+    min: 0
+    max: 20
+    step: 1
+    format: px
 
   - id: emphasis-style
     title: Emphasis
