@@ -18,10 +18,20 @@
   --tag-hover-color: #dc388f; /* light mode default */
   --tag-background: none;
   --tag-background-hover: none;
-  --tag-padding-x: 0em;
-  --tag-padding-y: 0em;
+  --tag-padding-x: 0.1em;
+  --tag-padding-y: 0.2em;
   --tag-border-width: 0px;
   --tag-radius: 0px;
+
+  /* Pandoc/WriterCitations defaults (light) */
+  --pwc-link-color: #0000ee;
+  --pwc-citation-color: #666666;
+  --pwc-citation-color-missing: #cc0000;
+  --pwc-citation-underline-color: #cc0000;
+  --pwc-citation-underline-color-missing: #cc0000;
+  --pwc-citation-formatting-color: #cc0000;
+  --pwc-citation-extra-color: #cc0000;
+  --cursor-link: pointer;
 }
 
 .theme-dark {
@@ -32,8 +42,17 @@
   --link-external-hover-color: #AABF0B;
 
   /* Tags */
-  --tag-color: #8c96d9; /* dark mode default */
-  --tag-hover-color: #ed5aa8; /* dark mode default */
+  --tag-color: #8A9697; /* dark mode default */
+  --tag-hover-color: #41BF9B; /* dark mode default */
+
+  /* Pandoc/WriterCitations defaults (dark) */
+  --pwc-link-color: #F9CC6C;
+  --pwc-citation-color: #948A8B;
+  --pwc-citation-color-missing: #F38D70;
+  --pwc-citation-underline-color: #F38D70;
+  --pwc-citation-underline-color-missing: #F38D70;
+  --pwc-citation-formatting-color: #F38D70;
+  --pwc-citation-extra-color: #F38D70;
 }
 
 /* Apply background and base text color */
@@ -273,6 +292,54 @@ body .cm-s-obsidian span.cm-hashtag {
   vertical-align: baseline;
 }
 
+/* Neutralize hash sub-spans/pseudo used by Obsidian/CodeMirror */
+body .cm-s-obsidian span.cm-formatting-hashtag,
+body .cm-s-obsidian span.cm-hashtag-begin,
+body .cm-s-obsidian span.cm-hashtag-end {
+  background: var(--tag-background) !important;
+  border: none !important;
+  border-radius: var(--tag-radius, 0px) !important;
+}
+
+/* In reading view some themes add pill via ::before on .tag */
+body .markdown-rendered .tag::before,
+body .markdown-preview-view .tag::before {
+  background: var(--tag-background) !important;
+  border: none !important;
+  border-radius: var(--tag-radius, 0px) !important;
+}
+
+/* Ensure zero-radius default applies without user interaction */
+body .markdown-rendered .tag,
+body .markdown-preview-view .tag,
+body .markdown-source-view .tag,
+body .cm-s-obsidian span.cm-hashtag,
+body .multi-select-pill {
+  border-radius: var(--tag-radius, 0px) !important;
+}
+
+/* --- Pandoc/WriterCitations overrides --- */
+/* Remove underline decorations on resolved citations */
+.pwc-tooltips :not(.cm-link-alias) > :is(.pandoc-citation, .at).is-resolved {
+  text-decoration: none !important;
+}
+
+/* Base link look for citations controlled by style settings */
+.pwc-tooltips :not(a, .cm-hmd-internal-link, .cm-link-alias) > :is(.pandoc-citation, .at).is-link {
+  color: var(--pwc-link-color);
+  cursor: var(--cursor-link);
+}
+
+/* Resolved citation color */
+.pwc-tooltips :not(a, .cm-hmd-internal-link, .cm-link-alias) > :is(.pandoc-citation, .at).is-resolved {
+  color: var(--pwc-citation-color);
+}
+
+/* Treat CM editor bare links as external link color */
+.cm-s-obsidian span.cm-link {
+  color: var(--link-external-color);
+  word-break: break-word;
+}
 body .tag:hover,
 body .cm-s-obsidian span.cm-hashtag:hover {
   color: var(--tag-hover-color);

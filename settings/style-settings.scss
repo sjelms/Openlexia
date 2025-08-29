@@ -480,4 +480,65 @@ settings:
     default-light: '#000000'
     default-dark: '#07F2DB'
     format: hex
+    
+  - id: pandoc-style
+    title: Pandoc Citations
+    type: heading
+    level: 2
+    collapsed: true
+
+  - id: pwc-link-color
+    title: Pandoc Link Color
+    type: variable-themed-color
+    default-light: '#0000ee'
+    default-dark: '#F9CC6C'
+    format: hex
+
+  - id: pwc-citation-color
+    title: Pandoc Citation Color
+    type: variable-themed-color
+    default-light: '#666666'
+    default-dark: '#948A8B'
+    format: hex
+
+  - id: pwc-citation-color-missing
+    title: Pandoc Citation Missing Color
+    type: variable-themed-color
+    default-light: '#cc0000'
+    default-dark: '#F38D70'
+    format: hex
+
+  - id: pwc-citation-underline-color
+    title: Pandoc Citation Underline Color
+    type: variable-themed-color
+    default-light: '#cc0000'
+    default-dark: '#F38D70'
+    format: hex
+
+  - id: pwc-citation-underline-color-missing
+    title: Pandoc Citation Underline Missing Color
+    type: variable-themed-color
+    default-light: '#cc0000'
+    default-dark: '#F38D70'
+    format: hex
+
+  - id: pwc-citation-formatting-color
+    title: Pandoc Citation Formatting Color
+    type: variable-themed-color
+    default-light: '#cc0000'
+    default-dark: '#F38D70'
+    format: hex
+
+  - id: pwc-citation-extra-color
+    title: Pandoc Citation Extra Color
+    type: variable-themed-color
+    default-light: '#cc0000'
+    default-dark: '#F38D70'
+    format: hex
+
+  - id: cursor-link
+    title: Cursor for Links
+    description: CSS cursor value applied to pandoc links (e.g., pointer)
+    type: variable-text
+    default: pointer
     */
