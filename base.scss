@@ -2,6 +2,7 @@
 @use "sass:color";
 @use 'settings/fonts';
 @use 'settings/colors-dark';
+@use 'settings/colors-light';
 @use 'settings/style-settings.scss';
 @use 'features/rainbow-folders/index';
 @use 'settings/decorations.scss';
@@ -29,8 +30,8 @@
   --list-marker-color: #0B9EBF;
 
   /* Pandoc/WriterCitations defaults (light) */
-  --pwc-link-color: #0000ee;
-  --pwc-citation-color: #666666;
+  --pwc-link-color: #{colors-light.$pwc-link-color};
+  --pwc-citation-color: #{colors-light.$pwc-citation-color};
   --pwc-citation-color-missing: #cc0000;
   --pwc-citation-underline-color: #cc0000;
   --pwc-citation-underline-color-missing: #cc0000;
@@ -73,8 +74,8 @@
   --list-marker-color: #0B9EBF;
 
   /* Pandoc/WriterCitations defaults (dark) */
-  --pwc-link-color: #F9CC6C;
-  --pwc-citation-color: #948A8B;
+  --pwc-link-color: #{colors-dark.$pwc-link-color};
+  --pwc-citation-color: #{colors-dark.$pwc-citation-color};
   --pwc-citation-color-missing: #F38D70;
   --pwc-citation-underline-color: #F38D70;
   --pwc-citation-underline-color-missing: #F38D70;
@@ -84,6 +85,29 @@
   /* Metadata defaults (dark) */
   --metadata-link-flair-color: #ffd76d;
   --metadata-link-inner-color: #41BF9B;
+}
+
+/* Light theme variables */
+.theme-light {
+  /* Links */
+  --link-internal-color: #{colors-light.$link-internal-color};
+  --link-internal-hover-color: #{colors-light.$link-internal-color};
+  --link-external-color: #{colors-light.$link-external-color};
+  --link-external-hover-color: #{colors-light.$link-external-color};
+
+  /* Rainbow Folders Accent Colors for Light theme (borrowed from headings) */
+  --color-accent1: 177, 104, 3;   /* #b16803 -> H1 */
+  --color-accent2: 212, 87, 43;   /* #d4572b -> H2 */
+  --color-accent3: 28, 140, 168;  /* #1c8ca8 -> H3 */
+  --color-accent4: 33, 136, 113;  /* #218871 -> H4 */
+  --color-accent5: 104, 81, 162;  /* #6851a2 -> H5 */
+  --color-accent6: 225, 71, 117;  /* #e14775 -> H6 */
+
+  /* Core RGB colors for rainbow + UI harmony */
+  --color-background: 248, 239, 231; /* #f8efe7 */
+  --color-text: 44, 35, 46;          /* #2c232e */
+  --color-dark1: 114, 105, 109;      /* #72696d */
+  --color-dark2: 44, 35, 46;         /* reuse text as dark base */
 }
 
 /* Apply background and base text color */
@@ -103,6 +127,83 @@ body.theme-dark {
 
   /* Heading variables are controlled via Style Settings. */
 
+}
+
+body.theme-light {
+  background-color: colors-light.$background;
+  color: colors-light.$text;
+
+  /* Workspace color overrides */
+  --background-primary: #f8efe7;
+  --tab-background-active: #f8efe7;
+  --tab-outline-color: #a59c9c;
+  --tab-divider-color: #92898a;
+  --titlebar-background-focused: #fdf7f3;
+  --background-secondary: #eee5de;
+  --background-modifier-border: #a59c9c;
+  --background-modifier-message: #fdf7f3;
+}
+
+/* Light theme variables */
+.theme-light {
+  /* Links */
+  --link-internal-color: #{colors-light.$link-internal-color};
+  --link-internal-hover-color: #{colors-light.$link-internal-color};
+  --link-external-color: #{colors-light.$link-external-color};
+  --link-external-hover-color: #{colors-light.$link-external-color};
+
+  /* Rainbow Folders Accent Colors (RGB for rgba()) */
+  --color-accent1: 255, 101, 122; /* #ff657a */
+  --color-accent2: 255, 155, 94;  /* #ff9b5e */
+  --color-accent3: 255, 215, 109; /* #ffd76d */
+  --color-accent4: 186, 215, 97;  /* #bad761 */
+  --color-accent5: 156, 209, 187; /* #9cd1bb */
+  --color-accent6: 195, 154, 201; /* #c39ac9 */
+
+  /* Core RGB colors for rainbow + UI harmony */
+  --color-background: 248, 239, 231; /* #f8efe7 */
+  --color-text: 44, 35, 46;          /* #2c232e */
+  --color-dark1: 114, 105, 109;      /* #72696d */
+  --color-dark2: 44, 35, 46;         /* reuse text as dark base */
+
+  /* Typography defaults (light) via CSS vars */
+  --body-text-color: #{colors-light.$text};
+  --list-marker-color: #{colors-light.$list-marker-color};
+  --emphasis-bold-color: #{colors-light.$bold-color};
+  --emphasis-italic-color: #{colors-light.$italic-color};
+  --emphasis-bolditalic-color: #{colors-light.$bolditalic-color};
+  --emphasis-strikethrough-color: #{colors-light.$strikethrough-color};
+
+  /* Heading color defaults (light) */
+  --heading-1-color: #{colors-light.$h1-color};
+  --heading-2-color: #{colors-light.$h2-color};
+  --heading-3-color: #{colors-light.$h3-color};
+  --heading-4-color: #{colors-light.$h4-color};
+  --heading-5-color: #{colors-light.$h5-color};
+  --heading-6-color: #{colors-light.$h6-color};
+
+  /* Blockquote defaults (light) */
+  --blockquote-border-color: #{colors-light.$blockquote-border};
+  --blockquote-background-color: #{colors-light.$blockquote-background-color};
+  --blockquote-text-color: #{colors-light.$blockquote-color};
+
+  /* Metadata defaults (light) */
+  --metadata-link-inner-color: #41BF9B;
+}
+
+body.theme-light {
+  background-color: colors-light.$background;
+  color: colors-light.$text;
+
+  /* Workspace color overrides (light) */
+  --background-primary: #f6f0f0;
+  --tab-background-active: #f6f0f0;
+  --tab-outline-color: #b8b1b1;
+  --tab-divider-color: #884800;
+  --titlebar-background-focused: #eaeaf7;
+  --background-secondary: #eaeaf7;
+  --background-modifier-border: #bcb4b4;
+  --background-modifier-message: #884800;
 }
 
 /* === Body Text Leading & Line Spacing === */
@@ -428,25 +529,25 @@ body .multi-select-pill:hover {
 
 /* === Headings === */
 .cm-header-1 { 
-  color: colors-dark.$h1-color; 
+  color: var(--heading-1-color, #{colors-dark.$h1-color}); 
   font-size: var(--heading-1-font-size, 28pt);
   line-height: var(--heading-1-line-height, 1.2);
   letter-spacing: var(--heading-1-letter-spacing, 0em);
 }
 .cm-header-2 { 
-  color: colors-dark.$h2-color; 
+  color: var(--heading-2-color, #{colors-dark.$h2-color}); 
   font-size: var(--heading-2-font-size, 28pt);
   line-height: var(--heading-2-line-height, 1.2);
   letter-spacing: var(--heading-2-letter-spacing, 0em);
 }
 .cm-header-3 { 
-  color: colors-dark.$h3-color; 
+  color: var(--heading-3-color, #{colors-dark.$h3-color}); 
   font-size: var(--heading-3-font-size, 28pt);
   line-height: var(--heading-3-line-height, 1.2);
   letter-spacing: var(--heading-3-letter-spacing, 0em);
 }
 .cm-header-4 { 
-  color: colors-dark.$h4-color; 
+  color: var(--heading-4-color, #{colors-dark.$h4-color}); 
   font-size: var(--heading-4-font-size, 28pt);
   line-height: var(--heading-4-line-height, 1.2);
   letter-spacing: var(--heading-4-letter-spacing, 0em);
@@ -459,22 +560,22 @@ body .multi-select-pill:hover {
    Override that so Style Settings controls actually apply. */
 .HyperMD-header .cm-header-1 { 
   font-size: var(--heading-1-font-size, 28pt) !important;
-  line-height: var(--heading-1-line-height, 1.2) !important;
+  line-height: var(--heading-1-line-height, 2.3) !important;
   letter-spacing: var(--heading-1-letter-spacing, 0em) !important;
 }
 .HyperMD-header .cm-header-2 { 
   font-size: var(--heading-2-font-size, 28pt) !important;
-  line-height: var(--heading-2-line-height, 1.2) !important;
+  line-height: var(--heading-2-line-height, 2.3) !important;
   letter-spacing: var(--heading-2-letter-spacing, 0em) !important;
 }
 .HyperMD-header .cm-header-3 { 
   font-size: var(--heading-3-font-size, 28pt) !important;
-  line-height: var(--heading-3-line-height, 1.2) !important;
+  line-height: var(--heading-3-line-height, 2.3) !important;
   letter-spacing: var(--heading-3-letter-spacing, 0em) !important;
 }
 .HyperMD-header .cm-header-4 { 
   font-size: var(--heading-4-font-size, 28pt) !important;
-  line-height: var(--heading-4-line-height, 1.2) !important;
+  line-height: var(--heading-4-line-height, 2.3) !important;
   letter-spacing: var(--heading-4-letter-spacing, 0em) !important;
 }
 
@@ -499,7 +600,7 @@ body .multi-select-pill:hover {
 .cm-s-obsidian .cm-header-1 {
   color: var(--heading-1-color, colors-dark.$h1-color);
   font-size: var(--heading-1-font-size, 28pt) !important;
-  line-height: var(--heading-1-line-height, 1.2);
+  line-height: var(--heading-1-line-height, 2.3);
   letter-spacing: var(--heading-1-letter-spacing, 0em);
   margin-bottom: var(--heading-1-spacing-after, 0.75em);
 }
@@ -511,7 +612,7 @@ body .multi-select-pill:hover {
 .cm-s-obsidian .cm-header-2 {
   color: var(--heading-2-color, colors-dark.$h2-color);
   font-size: var(--heading-2-font-size, 28pt) !important;
-  line-height: var(--heading-2-line-height, 1.2);
+  line-height: var(--heading-2-line-height, 2.3);
   letter-spacing: var(--heading-2-letter-spacing, 0em);
   margin-bottom: var(--heading-2-spacing-after, 0.75em);
 }
@@ -523,7 +624,7 @@ body .multi-select-pill:hover {
 .cm-s-obsidian .cm-header-3 {
   color: var(--heading-3-color, colors-dark.$h3-color);
   font-size: var(--heading-3-font-size, 28pt) !important;
-  line-height: var(--heading-3-line-height, 1.2);
+  line-height: var(--heading-3-line-height, 2.3);
   letter-spacing: var(--heading-3-letter-spacing, 0em);
   margin-bottom: var(--heading-3-spacing-after, 0.75em);
 }
@@ -535,20 +636,20 @@ body .multi-select-pill:hover {
 .cm-s-obsidian .cm-header-4 {
   color: var(--heading-4-color, colors-dark.$h4-color);
   font-size: var(--heading-4-font-size, 28pt) !important;
-  line-height: var(--heading-4-line-height, 1.2);
+  line-height: var(--heading-4-line-height, 2.3);
   letter-spacing: var(--heading-4-letter-spacing, 0em);
   margin-bottom: var(--heading-4-spacing-after, 0.75em);
 }
 
 /* Reading view extra specificity */
 .markdown-preview-view .markdown-rendered h1,
-.markdown-reading-view .markdown-rendered h1 { font-size: var(--heading-1-font-size, 28pt) !important; }
+.markdown-reading-view .markdown-rendered h1 { font-size: var(--heading-1-font-size, 28pt) !important; line-height: var(--heading-1-line-height, 2.3) !important; }
 .markdown-preview-view .markdown-rendered h2,
-.markdown-reading-view .markdown-rendered h2 { font-size: var(--heading-2-font-size, 28pt) !important; }
+.markdown-reading-view .markdown-rendered h2 { font-size: var(--heading-2-font-size, 28pt) !important; line-height: var(--heading-2-line-height, 2.3) !important; }
 .markdown-preview-view .markdown-rendered h3,
-.markdown-reading-view .markdown-rendered h3 { font-size: var(--heading-3-font-size, 28pt) !important; }
+.markdown-reading-view .markdown-rendered h3 { font-size: var(--heading-3-font-size, 28pt) !important; line-height: var(--heading-3-line-height, 2.3) !important; }
 .markdown-preview-view .markdown-rendered h4,
-.markdown-reading-view .markdown-rendered h4 { font-size: var(--heading-4-font-size, 28pt) !important; }
+.markdown-reading-view .markdown-rendered h4 { font-size: var(--heading-4-font-size, 28pt) !important; line-height: var(--heading-4-line-height, 2.3) !important; }
 
 .markdown-preview-view h5,
 .markdown-source-view h5,
@@ -606,16 +707,64 @@ body .multi-select-pill:hover {
 /* (Handled above for marker and formatting list color) */
 
 /* === Workspace Styles === */
-.workspace-ribbon {
-  background-color: #282a3a;
+.theme-dark .workspace-ribbon { background-color: #282a3a; }
+.theme-dark .nav-file-title, .theme-dark .nav-folder-title { color: #eaf2f1; }
+.theme-dark .clickable-icon { color: #ffd76d; }
+
+.theme-light .workspace-ribbon { background-color: #eaeaf7; }
+.theme-light .nav-file-title, .theme-light .nav-folder-title { color: #1a1e1d; }
+.theme-light .clickable-icon { color: #884800; }
+
+/* === Buttons: improve contrast in light theme by lightening dark variant backgrounds === */
+.theme-light button:not(.clickable-icon).mod-cta,
+.theme-light button:not(.clickable-icon).mod-warning,
+.theme-light button:not(.clickable-icon).mod-primary,
+.theme-light button:not(.clickable-icon).is-active {
+  background-color: #a59c9c;
+  border-color: #b8b1b1;
+  color: inherit; /* keep original icon/text color */
 }
 
-.nav-file-title, .nav-folder-title {
-  color: #eaf2f1;
+/* === Content Width (editor + reading) === */
+.cm-sizer {
+  max-width: var(--front-content-width, 1600px);
+  margin-left: auto;
+  margin-right: auto;
+}
+.markdown-reading-view .markdown-preview-sizer,
+.markdown-preview-view .markdown-preview-sizer {
+  max-width: var(--front-content-width, 1600px);
+  margin-left: auto;
+  margin-right: auto;
 }
 
-.clickable-icon {
-  color: #ffd76d;
+/* === Front Matter Styles === */
+/* Inline title */
+.inline-title {
+  font-family: var(--front-title-font, 'Fira Code', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace) !important;
+  text-align: var(--front-title-align, center);
+  font-size: var(--front-title-size, 20px) !important;
+  font-weight: var(--front-title-weight, 400) !important; /* regular */
+}
+
+/* Metadata properties */
+.metadata-container,
+.metadata-properties,
+.metadata-property,
+.metadata-property-key,
+.metadata-property-value,
+.metadata-input {
+  font-family: var(--front-meta-font, 'Fira Code', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace) !important;
+  font-size: var(--front-meta-font-size, 14pt) !important;
+}
+
+/* Keys and heading: make lowercase, same font + color */
+input.metadata-property-key-input,
+.metadata-properties-heading {
+  font-family: var(--front-meta-font, 'Fira Code', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace) !important;
+  font-size: var(--front-meta-font-size, 14pt) !important;
+  text-transform: lowercase;
+  color: var(--front-meta-color, inherit);
 }
 
 /* === Metadata Link Styles === */

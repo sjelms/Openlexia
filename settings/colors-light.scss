@@ -1,0 +1,69 @@
+/* === Base Colors === */
+$background: #eee6dd;
+$text: #2c232e;
+$muted: #a59c9c;
+$accent: #ce4770;
+
+
+/* === Blockquotes === */
+$blockquote-border: #218871;
+$blockquote-heading-color: #6851a2;
+$blockquote-background-color: #fdf7f3;
+$blockquote-color: #92898a;
+
+
+/* === Code === */
+$code-bg: #d2c9c4;
+$code-text: #2C2C2C;
+$code-border-color: #a59c9c;
+$inline-code-text: #2C2C2C;
+$inline-code-bg: #ded5d0;
+$icon-color: #72696d;
+
+
+/* === Checkboxes === */
+$checkbox-checked: #6851a2;
+$checkbox-unchecked: #92898a;
+
+
+/* === Headings === */
+$h1-color: #b16803;
+$h2-color: #d4572b;
+$h3-color: #1c8ca8;
+$h4-color: #218871;
+$h5-color: #6851a2;
+$h6-color: #e14775;
+
+
+/* === Emphasis Colors === */
+$bold-color: #2473b6;
+$italic-color: #218871;
+$bolditalic-color: #009688;
+$strikethrough-color: #6093BF;
+
+
+/* === Links === */
+$link-internal-color: #218871;
+$link-external-color: #a88900;
+
+
+/* === Lists === */
+$list-marker-color: #ce4770;
+
+
+/* === Table (future use) === */
+$table-border: #92898a;
+$table-header-bg: #eee5de;
+$table-row-bg: #fdf7f3;
+
+
+/* === Markdown Syntax & Special Elements === */
+$formatting-link-color: #ce4770;
+$url-color: #ce4770;
+$meta-color: #ce4770;
+$hashtag-color: #ce4770;
+$hr-line-color: #b16803;
+
+/* === Pandoc/WriterCitations (light) === */
+$pwc-link-color: #92898A;
+$pwc-citation-color: #92898A;
