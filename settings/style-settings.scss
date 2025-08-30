@@ -20,6 +20,12 @@ settings:
     level: 4
     collapsed: true
 
+  - id: heading-1-font-size
+    title: Font Size
+    type: variable-number
+    default: 1.266
+    format: em
+
   - id: heading-1-line-height
     title: Line Height
     type: variable-number
@@ -30,6 +36,12 @@ settings:
     title: Spacing After
     type: variable-number
     default: 0.75
+    format: em
+
+  - id: heading-1-letter-spacing
+    title: Letter Spacing
+    type: variable-number
+    default: 0
     format: em
 
   - id: heading-1-color
@@ -45,6 +57,12 @@ settings:
     level: 4
     collapsed: true
 
+  - id: heading-2-font-size
+    title: Font Size
+    type: variable-number
+    default: 1.266
+    format: em
+
   - id: heading-2-line-height
     title: Line Height
     type: variable-number
@@ -55,6 +73,12 @@ settings:
     title: Spacing After
     type: variable-number
     default: 0.75
+    format: em
+
+  - id: heading-2-letter-spacing
+    title: Letter Spacing
+    type: variable-number
+    default: 0
     format: em
 
   - id: heading-2-color
@@ -70,6 +94,12 @@ settings:
     level: 4
     collapsed: true
 
+  - id: heading-3-font-size
+    title: Font Size
+    type: variable-number
+    default: 1.266
+    format: em
+
   - id: heading-3-line-height
     title: Line Height
     type: variable-number
@@ -80,6 +110,12 @@ settings:
     title: Spacing After
     type: variable-number
     default: 0.75
+    format: em
+
+  - id: heading-3-letter-spacing
+    title: Letter Spacing
+    type: variable-number
+    default: 0
     format: em
 
   - id: heading-3-color
@@ -95,6 +131,12 @@ settings:
     level: 4
     collapsed: true
 
+  - id: heading-4-font-size
+    title: Font Size
+    type: variable-number
+    default: 1.266
+    format: em
+
   - id: heading-4-line-height
     title: Line Height
     type: variable-number
@@ -105,6 +147,12 @@ settings:
     title: Spacing After
     type: variable-number
     default: 0.75
+    format: em
+
+  - id: heading-4-letter-spacing
+    title: Letter Spacing
+    type: variable-number
+    default: 0
     format: em
 
   - id: heading-4-color
@@ -416,35 +464,23 @@ settings:
     format: hex
   - id: tag-padding-x
     title: "Tags: Horizontal Padding"
-    type: variable-number-slider
-    default: 0
-    min: 0
-    max: 1
-    step: 0.05
+    type: variable-number
+    default: 0.1
     format: em
   - id: tag-padding-y
     title: "Tags: Vertical Padding"
-    type: variable-number-slider
-    default: 0
-    min: 0
-    max: 1
-    step: 0.05
+    type: variable-number
+    default: 0.2
     format: em
   - id: tag-border-width
     title: "Tags: Border Width"
-    type: variable-number-slider
+    type: variable-number
     default: 0
-    min: 0
-    max: 3
-    step: 1
     format: px
   - id: tag-radius
     title: "Tags: Border Radius (Roundness)"
-    type: variable-number-slider
+    type: variable-number
     default: 0
-    min: 0
-    max: 20
-    step: 1
     format: px
 
   - id: emphasis-style
@@ -479,6 +515,26 @@ settings:
     type: variable-themed-color
     default-light: '#000000'
     default-dark: '#07F2DB'
+    format: hex
+    
+  - id: metadata-style
+    title: Metadata (YAML Frontmatter)
+    type: heading
+    level: 2
+    collapsed: true
+
+  - id: metadata-link-flair-color
+    title: Metadata Link Flair Color
+    type: variable-themed-color
+    default-light: '#000000'
+    default-dark: '#ffd76d'
+    format: hex
+
+  - id: metadata-link-inner-color
+    title: Metadata Internal Link Color
+    type: variable-themed-color
+    default-light: '#0000ee'
+    default-dark: '#41BF9B'
     format: hex
     
   - id: pandoc-style

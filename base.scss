@@ -22,6 +22,10 @@
   --tag-padding-y: 0.2em;
   --tag-border-width: 0px;
   --tag-radius: 0px;
+  --tag-border-color: var(--tag-color);
+  --tag-size: inherit;
+  --tag-weight: inherit;
+  --list-marker-color: #0B9EBF;
 
   /* Pandoc/WriterCitations defaults (light) */
   --pwc-link-color: #0000ee;
@@ -32,6 +36,10 @@
   --pwc-citation-formatting-color: #cc0000;
   --pwc-citation-extra-color: #cc0000;
   --cursor-link: pointer;
+
+  /* Metadata defaults (light) */
+  --metadata-link-flair-color: #000000;
+  --metadata-link-inner-color: #0000ee;
 }
 
 .theme-dark {
@@ -44,6 +52,10 @@
   /* Tags */
   --tag-color: #8A9697; /* dark mode default */
   --tag-hover-color: #41BF9B; /* dark mode default */
+  --tag-border-color: var(--tag-color);
+  --tag-size: inherit;
+  --tag-weight: inherit;
+  --list-marker-color: #0B9EBF;
 
   /* Pandoc/WriterCitations defaults (dark) */
   --pwc-link-color: #F9CC6C;
@@ -53,6 +65,10 @@
   --pwc-citation-underline-color-missing: #F38D70;
   --pwc-citation-formatting-color: #F38D70;
   --pwc-citation-extra-color: #F38D70;
+
+  /* Metadata defaults (dark) */
+  --metadata-link-flair-color: #ffd76d;
+  --metadata-link-inner-color: #41BF9B;
 }
 
 /* Apply background and base text color */
@@ -60,22 +76,40 @@ body.theme-dark {
   background-color: colors-dark.$background;
   color: colors-dark.$text;
 
+  /* Workspace color overrides */
+  --background-primary: #2c2525;
+  --tab-background-active: #2c2525;
+  --tab-outline-color: #72696a;
+  --tab-divider-color: #ffd76d;
+  --titlebar-background-focused: #282a3a;
+  --background-secondary: #282a3a;
+  --background-modifier-border: #5b5353;
+  --background-modifier-message: #282a3a;
+
   /* === Heading Variables for Style Settings plugin === */
   --heading-1-color: var(--heading-1-color, #D96C0D);
   --heading-1-line-height: var(--heading-1-line-height, 1.2);
   --heading-1-spacing-after: var(--heading-1-spacing-after, 0.75em);
+  --heading-1-font-size: var(--heading-1-font-size, 1.266em);
+  --heading-1-letter-spacing: var(--heading-1-letter-spacing, 0em);
 
   --heading-2-color: var(--heading-2-color, #F25C05);
   --heading-2-line-height: var(--heading-2-line-height, 1.2);
   --heading-2-spacing-after: var(--heading-2-spacing-after, 0.75em);
+  --heading-2-font-size: var(--heading-2-font-size, 1.266em);
+  --heading-2-letter-spacing: var(--heading-2-letter-spacing, 0em);
 
   --heading-3-color: var(--heading-3-color, #F29F05);
   --heading-3-line-height: var(--heading-3-line-height, 1.2);
   --heading-3-spacing-after: var(--heading-3-spacing-after, 0.75em);
+  --heading-3-font-size: var(--heading-3-font-size, 1.266em);
+  --heading-3-letter-spacing: var(--heading-3-letter-spacing, 0em);
 
   --heading-4-color: var(--heading-4-color, #BF6B04);
   --heading-4-line-height: var(--heading-4-line-height, 1.2);
   --heading-4-spacing-after: var(--heading-4-spacing-after, 0.75em);
+  --heading-4-font-size: var(--heading-4-font-size, 1.266em);
+  --heading-4-letter-spacing: var(--heading-4-letter-spacing, 0em);
 
   --heading-5-color: var(--heading-5-color, #B149BF);
   --heading-5-line-height: var(--heading-5-line-height, 1.2);
@@ -288,17 +322,38 @@ body .cm-s-obsidian span.cm-hashtag {
   background: var(--tag-background);
   border: var(--tag-border-width) solid var(--tag-color);
   padding: var(--tag-padding-y) var(--tag-padding-x);
-  border-radius: var(--tag-radius) !important;
+  border-radius: 0px !important;
   vertical-align: baseline;
 }
 
-/* Neutralize hash sub-spans/pseudo used by Obsidian/CodeMirror */
-body .cm-s-obsidian span.cm-formatting-hashtag,
-body .cm-s-obsidian span.cm-hashtag-begin,
-body .cm-s-obsidian span.cm-hashtag-end {
-  background: var(--tag-background) !important;
-  border: none !important;
-  border-radius: var(--tag-radius, 0px) !important;
+/* Target the specific hashtag classes that Style Settings generates */
+body .cm-hashtag {
+  color: var(--tag-color);
+  background-color: var(--tag-background);
+  border: var(--tag-border-width) solid var(--tag-border-color);
+  font-size: var(--tag-size);
+  font-weight: var(--tag-weight);
+  vertical-align: baseline;
+  border-inline-start: none;
+  border-inline-end: none;
+  padding-top: var(--tag-padding-y);
+  padding-bottom: var(--tag-padding-y);
+}
+
+body .cm-hashtag.cm-hashtag-begin {
+  border-start-start-radius: 0px;
+  border-end-start-radius: 0px;
+  border-inline-end: none;
+  border-inline-start: var(--tag-border-width) solid var(--tag-border-color);
+  padding-inline-start: var(--tag-padding-x);
+}
+
+body .cm-hashtag.cm-hashtag-end {
+  border-start-end-radius: 0px;
+  border-end-end-radius: 0px;
+  border-inline-start: none;
+  border-inline-end: var(--tag-border-width) solid var(--tag-border-color);
+  padding-inline-end: var(--tag-padding-x);
 }
 
 /* In reading view some themes add pill via ::before on .tag */
@@ -315,7 +370,7 @@ body .markdown-preview-view .tag,
 body .markdown-source-view .tag,
 body .cm-s-obsidian span.cm-hashtag,
 body .multi-select-pill {
-  border-radius: var(--tag-radius, 0px) !important;
+  border-radius: 0px !important;
 }
 
 /* --- Pandoc/WriterCitations overrides --- */
@@ -353,7 +408,7 @@ body .multi-select-pill {
   background: var(--tag-background);
   border: var(--tag-border-width) solid var(--tag-color);
   padding: var(--tag-padding-y) var(--tag-padding-x);
-  border-radius: var(--tag-radius) !important;
+  border-radius: 0px !important;
 
   .multi-select-pill-remove-button {
     display: none;
@@ -388,10 +443,30 @@ body .multi-select-pill:hover {
 }
 
 /* === Headings === */
-.cm-header-1 { color: colors-dark.$h1-color; }
-.cm-header-2 { color: colors-dark.$h2-color; }
-.cm-header-3 { color: colors-dark.$h3-color; }
-.cm-header-4 { color: colors-dark.$h4-color; }
+.cm-header-1 { 
+  color: colors-dark.$h1-color; 
+  font-size: var(--heading-1-font-size, 1.266em);
+  line-height: var(--heading-1-line-height, 1.2);
+  letter-spacing: var(--heading-1-letter-spacing, 0em);
+}
+.cm-header-2 { 
+  color: colors-dark.$h2-color; 
+  font-size: var(--heading-2-font-size, 1.266em);
+  line-height: var(--heading-2-line-height, 1.2);
+  letter-spacing: var(--heading-2-letter-spacing, 0em);
+}
+.cm-header-3 { 
+  color: colors-dark.$h3-color; 
+  font-size: var(--heading-3-font-size, 1.266em);
+  line-height: var(--heading-3-line-height, 1.2);
+  letter-spacing: var(--heading-3-letter-spacing, 0em);
+}
+.cm-header-4 { 
+  color: colors-dark.$h4-color; 
+  font-size: var(--heading-4-font-size, 1.266em);
+  line-height: var(--heading-4-line-height, 1.2);
+  letter-spacing: var(--heading-4-letter-spacing, 0em);
+}
 .cm-header-5 { color: colors-dark.$h5-color; }
 .cm-header-6 { color: colors-dark.$h6-color; }
 
@@ -401,7 +476,9 @@ body .multi-select-pill:hover {
 .cm-content h1,
 .cm-s-obsidian .cm-header-1 {
   color: var(--heading-1-color, colors-dark.$h1-color);
+  font-size: var(--heading-1-font-size, 1.266em);
   line-height: var(--heading-1-line-height, 1.2);
+  letter-spacing: var(--heading-1-letter-spacing, 0em);
   margin-bottom: var(--heading-1-spacing-after, 0.75em);
 }
 
@@ -411,7 +488,9 @@ body .multi-select-pill:hover {
 .cm-content h2,
 .cm-s-obsidian .cm-header-2 {
   color: var(--heading-2-color, colors-dark.$h2-color);
+  font-size: var(--heading-2-font-size, 1.266em);
   line-height: var(--heading-2-line-height, 1.2);
+  letter-spacing: var(--heading-2-letter-spacing, 0em);
   margin-bottom: var(--heading-2-spacing-after, 0.75em);
 }
 
@@ -421,7 +500,9 @@ body .multi-select-pill:hover {
 .cm-content h3,
 .cm-s-obsidian .cm-header-3 {
   color: var(--heading-3-color, colors-dark.$h3-color);
+  font-size: var(--heading-3-font-size, 1.266em);
   line-height: var(--heading-3-line-height, 1.2);
+  letter-spacing: var(--heading-3-letter-spacing, 0em);
   margin-bottom: var(--heading-3-spacing-after, 0.75em);
 }
 
@@ -431,7 +512,9 @@ body .multi-select-pill:hover {
 .cm-content h4,
 .cm-s-obsidian .cm-header-4 {
   color: var(--heading-4-color, colors-dark.$h4-color);
+  font-size: var(--heading-4-font-size, 1.266em);
   line-height: var(--heading-4-line-height, 1.2);
+  letter-spacing: var(--heading-4-letter-spacing, 0em);
   margin-bottom: var(--heading-4-spacing-after, 0.75em);
 }
 
@@ -490,7 +573,25 @@ body .multi-select-pill:hover {
 
 /* (Handled above for marker and formatting list color) */
 
+/* === Workspace Styles === */
+.workspace-ribbon {
+  background-color: #282a3a;
+}
 
+.nav-file-title, .nav-folder-title {
+  color: #eaf2f1;
+}
 
+.clickable-icon {
+  color: #ffd76d;
+}
 
+/* === Metadata Link Styles === */
+.metadata-link-flair {
+  color: var(--metadata-link-flair-color, #ffd76d);
+}
+
+.metadata-link-inner.internal-link {
+  color: var(--metadata-link-inner-color, #41BF9B);
+}
 
