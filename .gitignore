@@ -15,3 +15,6 @@ workspace.json
 
 # Logs
 *.log
+
+/Theme Test Sandbox
+/tasks

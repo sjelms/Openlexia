@@ -3,6 +3,7 @@
 @use 'settings/fonts';
 @use 'settings/colors-dark';
 @use 'settings/style-settings.scss';
+@use 'features/rainbow-folders/index';
 @use 'settings/decorations.scss';
 
 /* --- Links & Tags Variables --- */
@@ -49,6 +50,20 @@
   --link-external-color: #AABF0B;
   --link-external-hover-color: #AABF0B;
 
+  /* Rainbow Folders Accent Colors (RGB for rgba()) */
+  --color-accent1: 255, 101, 122; /* #ff657a */
+  --color-accent2: 255, 155, 94;  /* #ff9b5e */
+  --color-accent3: 255, 215, 109; /* #ffd76d */
+  --color-accent4: 186, 215, 97;  /* #bad761 */
+  --color-accent5: 156, 209, 187; /* #9cd1bb */
+  --color-accent6: 195, 154, 201; /* #c39ac9 */
+
+  /* Core RGB colors for rainbow feature */
+  --color-background: 40, 42, 58; /* #282a3a */
+  --color-text: 234, 242, 241;    /* #eaf2f1 */
+  --color-dark1: 30, 31, 43;      /* #1e1f2b */
+  --color-dark2: 22, 24, 33;      /* #161821 */
+
   /* Tags */
   --tag-color: #8A9697; /* dark mode default */
   --tag-hover-color: #41BF9B; /* dark mode default */
@@ -86,38 +101,7 @@ body.theme-dark {
   --background-modifier-border: #5b5353;
   --background-modifier-message: #282a3a;
 
-  /* === Heading Variables for Style Settings plugin === */
-  --heading-1-color: var(--heading-1-color, #D96C0D);
-  --heading-1-line-height: var(--heading-1-line-height, 1.2);
-  --heading-1-spacing-after: var(--heading-1-spacing-after, 0.75em);
-  --heading-1-font-size: var(--heading-1-font-size, 1.266em);
-  --heading-1-letter-spacing: var(--heading-1-letter-spacing, 0em);
-
-  --heading-2-color: var(--heading-2-color, #F25C05);
-  --heading-2-line-height: var(--heading-2-line-height, 1.2);
-  --heading-2-spacing-after: var(--heading-2-spacing-after, 0.75em);
-  --heading-2-font-size: var(--heading-2-font-size, 1.266em);
-  --heading-2-letter-spacing: var(--heading-2-letter-spacing, 0em);
-
-  --heading-3-color: var(--heading-3-color, #F29F05);
-  --heading-3-line-height: var(--heading-3-line-height, 1.2);
-  --heading-3-spacing-after: var(--heading-3-spacing-after, 0.75em);
-  --heading-3-font-size: var(--heading-3-font-size, 1.266em);
-  --heading-3-letter-spacing: var(--heading-3-letter-spacing, 0em);
-
-  --heading-4-color: var(--heading-4-color, #BF6B04);
-  --heading-4-line-height: var(--heading-4-line-height, 1.2);
-  --heading-4-spacing-after: var(--heading-4-spacing-after, 0.75em);
-  --heading-4-font-size: var(--heading-4-font-size, 1.266em);
-  --heading-4-letter-spacing: var(--heading-4-letter-spacing, 0em);
-
-  --heading-5-color: var(--heading-5-color, #B149BF);
-  --heading-5-line-height: var(--heading-5-line-height, 1.2);
-  --heading-5-spacing-after: var(--heading-5-spacing-after, 0.75em);
-
-  --heading-6-color: var(--heading-6-color, #F2E63D);
-  --heading-6-line-height: var(--heading-6-line-height, 1.2);
-  --heading-6-spacing-after: var(--heading-6-spacing-after, 0.75em);
+  /* Heading variables are controlled via Style Settings. */
 
 }
 
@@ -130,7 +114,7 @@ body.theme-dark {
   color: var(--body-text-color, colors-dark.$text);
   line-height: var(--body-line-height, 1.7); // Adjust for leading
   letter-spacing: var(--body-letter-spacing, 0.015em); // Optional: subtle tracking
-  font-size: var(--body-font-size, 22px);
+  font-size: var(--body-font-size, 24pt);
 }
 
 /* === Emphasis === */
@@ -445,30 +429,68 @@ body .multi-select-pill:hover {
 /* === Headings === */
 .cm-header-1 { 
   color: colors-dark.$h1-color; 
-  font-size: var(--heading-1-font-size, 1.266em);
+  font-size: var(--heading-1-font-size, 28pt);
   line-height: var(--heading-1-line-height, 1.2);
   letter-spacing: var(--heading-1-letter-spacing, 0em);
 }
 .cm-header-2 { 
   color: colors-dark.$h2-color; 
-  font-size: var(--heading-2-font-size, 1.266em);
+  font-size: var(--heading-2-font-size, 28pt);
   line-height: var(--heading-2-line-height, 1.2);
   letter-spacing: var(--heading-2-letter-spacing, 0em);
 }
 .cm-header-3 { 
   color: colors-dark.$h3-color; 
-  font-size: var(--heading-3-font-size, 1.266em);
+  font-size: var(--heading-3-font-size, 28pt);
   line-height: var(--heading-3-line-height, 1.2);
   letter-spacing: var(--heading-3-letter-spacing, 0em);
 }
 .cm-header-4 { 
   color: colors-dark.$h4-color; 
-  font-size: var(--heading-4-font-size, 1.266em);
+  font-size: var(--heading-4-font-size, 28pt);
   line-height: var(--heading-4-line-height, 1.2);
   letter-spacing: var(--heading-4-letter-spacing, 0em);
 }
 .cm-header-5 { color: colors-dark.$h5-color; }
 .cm-header-6 { color: colors-dark.$h6-color; }
+
+/* In Live Preview, Obsidian forces heading tokens to inherit
+   font-size via `.HyperMD-header .cm-header-* { font-size: inherit !important; }`.
+   Override that so Style Settings controls actually apply. */
+.HyperMD-header .cm-header-1 { 
+  font-size: var(--heading-1-font-size, 28pt) !important;
+  line-height: var(--heading-1-line-height, 1.2) !important;
+  letter-spacing: var(--heading-1-letter-spacing, 0em) !important;
+}
+.HyperMD-header .cm-header-2 { 
+  font-size: var(--heading-2-font-size, 28pt) !important;
+  line-height: var(--heading-2-line-height, 1.2) !important;
+  letter-spacing: var(--heading-2-letter-spacing, 0em) !important;
+}
+.HyperMD-header .cm-header-3 { 
+  font-size: var(--heading-3-font-size, 28pt) !important;
+  line-height: var(--heading-3-line-height, 1.2) !important;
+  letter-spacing: var(--heading-3-letter-spacing, 0em) !important;
+}
+.HyperMD-header .cm-header-4 { 
+  font-size: var(--heading-4-font-size, 28pt) !important;
+  line-height: var(--heading-4-line-height, 1.2) !important;
+  letter-spacing: var(--heading-4-letter-spacing, 0em) !important;
+}
+
+/* Stronger specificity to override Obsidian defaults */
+.cm-s-obsidian .HyperMD-header .cm-header-1 { 
+  font-size: var(--heading-1-font-size, 28pt) !important;
+}
+.cm-s-obsidian .HyperMD-header .cm-header-2 { 
+  font-size: var(--heading-2-font-size, 28pt) !important;
+}
+.cm-s-obsidian .HyperMD-header .cm-header-3 { 
+  font-size: var(--heading-3-font-size, 28pt) !important;
+}
+.cm-s-obsidian .HyperMD-header .cm-header-4 { 
+  font-size: var(--heading-4-font-size, 28pt) !important;
+}
 
 .markdown-preview-view h1,
 .markdown-source-view h1,
@@ -476,7 +498,7 @@ body .multi-select-pill:hover {
 .cm-content h1,
 .cm-s-obsidian .cm-header-1 {
   color: var(--heading-1-color, colors-dark.$h1-color);
-  font-size: var(--heading-1-font-size, 1.266em);
+  font-size: var(--heading-1-font-size, 28pt) !important;
   line-height: var(--heading-1-line-height, 1.2);
   letter-spacing: var(--heading-1-letter-spacing, 0em);
   margin-bottom: var(--heading-1-spacing-after, 0.75em);
@@ -488,7 +510,7 @@ body .multi-select-pill:hover {
 .cm-content h2,
 .cm-s-obsidian .cm-header-2 {
   color: var(--heading-2-color, colors-dark.$h2-color);
-  font-size: var(--heading-2-font-size, 1.266em);
+  font-size: var(--heading-2-font-size, 28pt) !important;
   line-height: var(--heading-2-line-height, 1.2);
   letter-spacing: var(--heading-2-letter-spacing, 0em);
   margin-bottom: var(--heading-2-spacing-after, 0.75em);
@@ -500,7 +522,7 @@ body .multi-select-pill:hover {
 .cm-content h3,
 .cm-s-obsidian .cm-header-3 {
   color: var(--heading-3-color, colors-dark.$h3-color);
-  font-size: var(--heading-3-font-size, 1.266em);
+  font-size: var(--heading-3-font-size, 28pt) !important;
   line-height: var(--heading-3-line-height, 1.2);
   letter-spacing: var(--heading-3-letter-spacing, 0em);
   margin-bottom: var(--heading-3-spacing-after, 0.75em);
@@ -512,11 +534,21 @@ body .multi-select-pill:hover {
 .cm-content h4,
 .cm-s-obsidian .cm-header-4 {
   color: var(--heading-4-color, colors-dark.$h4-color);
-  font-size: var(--heading-4-font-size, 1.266em);
+  font-size: var(--heading-4-font-size, 28pt) !important;
   line-height: var(--heading-4-line-height, 1.2);
   letter-spacing: var(--heading-4-letter-spacing, 0em);
   margin-bottom: var(--heading-4-spacing-after, 0.75em);
 }
+
+/* Reading view extra specificity */
+.markdown-preview-view .markdown-rendered h1,
+.markdown-reading-view .markdown-rendered h1 { font-size: var(--heading-1-font-size, 28pt) !important; }
+.markdown-preview-view .markdown-rendered h2,
+.markdown-reading-view .markdown-rendered h2 { font-size: var(--heading-2-font-size, 28pt) !important; }
+.markdown-preview-view .markdown-rendered h3,
+.markdown-reading-view .markdown-rendered h3 { font-size: var(--heading-3-font-size, 28pt) !important; }
+.markdown-preview-view .markdown-rendered h4,
+.markdown-reading-view .markdown-rendered h4 { font-size: var(--heading-4-font-size, 28pt) !important; }
 
 .markdown-preview-view h5,
 .markdown-source-view h5,
@@ -594,4 +626,3 @@ body .multi-select-pill:hover {
 .metadata-link-inner.internal-link {
   color: var(--metadata-link-inner-color, #41BF9B);
 }
-

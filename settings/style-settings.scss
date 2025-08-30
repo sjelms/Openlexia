@@ -23,8 +23,8 @@ settings:
   - id: heading-1-font-size
     title: Font Size
     type: variable-number
-    default: 1.266
-    format: em
+    default: 28
+    format: pt
 
   - id: heading-1-line-height
     title: Line Height
@@ -60,8 +60,8 @@ settings:
   - id: heading-2-font-size
     title: Font Size
     type: variable-number
-    default: 1.266
-    format: em
+    default: 28
+    format: pt
 
   - id: heading-2-line-height
     title: Line Height
@@ -97,8 +97,8 @@ settings:
   - id: heading-3-font-size
     title: Font Size
     type: variable-number
-    default: 1.266
-    format: em
+    default: 28
+    format: pt
 
   - id: heading-3-line-height
     title: Line Height
@@ -134,8 +134,8 @@ settings:
   - id: heading-4-font-size
     title: Font Size
     type: variable-number
-    default: 1.266
-    format: em
+    default: 28
+    format: pt
 
   - id: heading-4-line-height
     title: Line Height
@@ -222,8 +222,8 @@ settings:
   - id: body-font-size
     title: Body Font Size
     type: variable-number
-    default: 22
-    format: px
+    default: 24
+    format: pt
 
   - id: body-line-height
     title: Body Text Line Height
@@ -597,4 +597,85 @@ settings:
     description: CSS cursor value applied to pandoc links (e.g., pointer)
     type: variable-text
     default: pointer
+
+  # Workspace :: Rainbow Folders
+
+  - id: ox-rainbow-section-header
+    title: Rainbow Folders
+    description:
+    type: heading
+    level: 2
+    collapsed: true
+
+  - id: ox-alt-rainbow-style
+    title: Rainbow style
+    type: class-select
+    allowEmpty: false
+    default: ox-simple-rainbow-color-toggle
+    options:
+      - label: None
+        value: ox-default-rainbow
+      - label: Full
+        value: ox-full-rainbow-color-toggle
+      - label: Simple
+        value: ox-simple-rainbow-color-toggle
+
+  # Workspace :: Rainbow Folders :: Full Folder Settings
+
+  - id: ox-full-rainbow-folder-settings
+    title: Full Folder Settings
+    description:
+    type: heading
+    level: 3
+    collapsed: true
+
+  - id: ox-rainbow-file-toggle
+    title: File recolor toggle
+    desc: Recolors files to match the folders
+    type: class-toggle
+    default: true
+
+  - id: ox-full-rainbow-text-color-toggle-dark
+    title: Invert title colors (Dark Mode)
+    type: class-toggle
+    default: false
+
+  - id: ox-rainbow-folder-bg-opacity
+    title: Folder background color opacity
+    type: variable-number
+    default: 0.7
+
+  # Workspace :: Rainbow Folders :: Simple Folder Settings
+
+  - id: ox-simple-rainbow-folder-settings
+    title: Simple Folder Settings
+    description:
+    type: heading
+    level: 3
+    collapsed: true
+
+  - id: ox-simple-rainbow-title-toggle
+    title: Enable title recolor
+    type: class-toggle
+    default: false
+
+  - id: ox-simple-rainbow-collapse-icon-toggle
+    title: Enable collapse icon recolor
+    type: class-toggle
+    default: true
+
+  - id: ox-simple-rainbow-indentation-toggle
+    title: Enable collapse indent recolor
+    type: class-toggle
+    default: true
+
+  - id: ox-simple-rainbow-icon-toggle
+    title: Enable circular file
+    type: class-toggle
+    default: true
+
+  - id: ox-rainbow-subfolder-color-toggle
+    title: Enable subfolder color inheritance
+    type: class-toggle
+    default: true
     */

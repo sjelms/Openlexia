@@ -1,0 +1,122 @@
+/*---------------------------------------------------------------
+* FULL RAINBOW STYLE
+*---------------------------------------------------------------*/
+
+// Openlexia-compatible full rainbow without Catppuccin variables
+.anp-full-rainbow-color-toggle,
+.ox-full-rainbow-color-toggle {
+
+    // Apply styling to folders
+    .nav-files-container>div>.nav-folder .nav-folder-title,
+    .nav-files-container>div>.nav-folder .nav-file-title,
+    .nav-files-container .collapse-icon svg.svg-icon,
+    .tree-item-self .tree-item-icon {
+        /* Use readable text color by default */
+        color: var(--anp-full-rainbow-text-inverted, var(--text-normal, #eaf2f1));
+        --icon-color: var(--anp-full-rainbow-text-inverted, var(--text-normal, #eaf2f1));
+    }
+
+    // Apply styling to files in root level
+    &.anp-rainbow-file-toggle,
+    &.ox-rainbow-file-toggle {
+        .nav-files-container>div>.nav-folder-children>.nav-file .nav-file-title {
+            color: var(--anp-full-rainbow-text-inverted, rgb(var(--color-text)));
+        }
+
+        .nav-files-container>div>.nav-file {
+            border-radius: 5px;
+            margin-bottom: 2px;
+            background-color: rgba(var(--color-text), var(--anp-rainbow-folder-bg-opacity, 0.6));
+        }
+    }
+
+    // Apply styling to files in folders
+    &:not(.is-grabbing) .nav-files-container>div {
+
+        // Files have a slight background
+        &>.nav-folder .nav-folder-title:hover,
+        .nav-file .nav-file-title:hover {
+            background-color: rgba(var(--color-text), 0.05);
+        }
+
+        // Background is intensified upon grabbing or selection
+        &>.nav-folder .nav-file-title.is-active {
+            border-color: rgba(var(--color-text), 0.1);
+            background-color: rgba(var(--color-text), 0.1);
+        }
+    }
+
+    //Hide scrollbars and allow horizontal scrolling
+    .nav-file {
+        overflow-y: hidden;
+    }
+
+    //Renaming files
+    .nav-file-title-content.is-being-renamed,
+    .nav-folder-title-content.is-being-renamed {
+        cursor: text;
+        border-color: var(--interactive-accent);
+        background-color: rgba(var(--color-dark2), 0.2);
+
+        &::selection {
+            background-color: rgba(var(--color-accent1), 0.2);
+        }
+    }
+
+    .nav-file-title-content.is-being-renamed::selection {
+        background-color: rgba(var(--color-accent1), 0.2);
+    }
+
+    .nav-files-container {
+        .nav-folder>.nav-folder-children {
+            padding: 0 5px 0 5px;
+        }
+
+        >div {
+            >.nav-folder {
+                transition: background-color 0.4s;
+                background-color: rgba(var(--rainbow-folder-color), var(--ox-rainbow-folder-bg-opacity, var(--anp-rainbow-folder-bg-opacity, 0.6)));
+                margin-bottom: 2px;
+                border-radius: 5px;
+
+                .nav-folder-children {
+                    border-color: rgba(var(--color-dark2), 0.4);
+                }
+            }
+
+            >.nav-file.has-focus {
+                background-color: rgba(var(--color-text), var(--ox-rainbow-folder-bg-opacity, var(--anp-rainbow-folder-bg-opacity, 0.6)));
+                border-left: none;
+                border-color: rgb(var(--color-accent1));
+            }
+
+            &>.nav-file,
+            &>.nav-file.has-focus {
+                &>.nav-file-title {
+                    margin-bottom: 0;
+                }
+            }
+        }
+    }
+
+    // Disable shadows
+    .workspace-leaf.mod-active .nav-folder.has-focus> {
+
+        .nav-file-title,
+        .nav-folder-title {
+
+            &,
+            &:focus-within {
+                box-shadow: none;
+            }
+        }
+    }
+}
+
+// Invert item text colors: choose readable color per theme
+.anp-full-rainbow-text-color-toggle-dark.theme-dark,
+.ox-full-rainbow-text-color-toggle-dark.theme-dark,
+.anp-full-rainbow-text-color-toggle-light.theme-light,
+.ox-full-rainbow-text-color-toggle-light.theme-light {
+    --anp-full-rainbow-text-inverted: var(--text-normal, #eaf2f1);
+}

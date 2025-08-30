@@ -1,0 +1,33 @@
+/*---------------------------------------------------------------
+* RAINBOW FOLDER VARIABLES
+*---------------------------------------------------------------*/
+.nav-folder-children > .nav-folder,
+.nav-files-container > div > .nav-folder,
+[data-type="bookmarks"] .tree-item {
+    &:nth-child(6n + 1) {
+        --rainbow-folder-color: var(--color-accent1);
+    }
+    &:nth-child(6n + 2) {
+        --rainbow-folder-color: var(--color-accent2);
+    }
+    &:nth-child(6n + 3) {
+        --rainbow-folder-color: var(--color-accent3);
+    }
+    &:nth-child(6n + 4) {
+        --rainbow-folder-color: var(--color-accent4);
+    }
+    &:nth-child(6n + 5) {
+        --rainbow-folder-color: var(--color-accent5);
+    }
+    &:nth-child(6n + 6) {
+        --rainbow-folder-color: var(--color-accent6);
+    }
+}
+
+.anp-rainbow-subfolder-color-toggle,
+.ox-rainbow-subfolder-color-toggle {
+    .nav-files-container .nav-folder.nav-folder .nav-folder,
+    [data-type="bookmarks"] .tree-item .tree-item {
+        --rainbow-folder-color: inherit;
+    }
+}
