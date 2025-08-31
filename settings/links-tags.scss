@@ -1,0 +1,47 @@
+/* Link and Tag CSS variables centralization */
+@use 'colors-dark';
+@use 'colors-light';
+
+/* Defaults (light theme baseline) */
+:root {
+  /* Links */
+  --link-internal-color: #{colors-light.$link-internal-color};
+  --link-internal-hover-color: #{colors-light.$link-internal-color};
+  --link-external-color: #{colors-light.$link-external-color};
+  --link-external-hover-color: #{colors-light.$link-external-color};
+
+  /* Tags (defaults; Style Settings may override) */
+  --tag-color: #5460ab;
+  --tag-hover-color: #dc388f;
+  --tag-background: none;
+  --tag-background-hover: none;
+  --tag-padding-x: 0.1em;
+  --tag-padding-y: 0.2em;
+  --tag-border-width: 0px;
+  --tag-radius: 0px;
+  --tag-border-color: var(--tag-color);
+  --tag-size: inherit;
+  --tag-weight: inherit;
+
+  /* Lists */
+  --list-marker-color: #{colors-light.$list-marker-color};
+}
+
+.theme-dark {
+  /* Links */
+  --link-internal-color: #{colors-dark.$link-internal-color};
+  --link-internal-hover-color: #{colors-dark.$link-internal-color};
+  --link-external-color: #{colors-dark.$link-external-color};
+  --link-external-hover-color: #{colors-dark.$link-external-color};
+
+  /* Tags */
+  --tag-color: #8A9697;
+  --tag-hover-color: #41BF9B;
+  --tag-border-color: var(--tag-color);
+  --tag-size: inherit;
+  --tag-weight: inherit;
+
+  /* Lists */
+  --list-marker-color: #{colors-dark.$list-marker-color};
+}
+

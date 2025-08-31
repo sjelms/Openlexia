@@ -1,0 +1,25 @@
+/* Pandoc/WriterCitations color variables */
+@use 'colors-dark';
+@use 'colors-light';
+
+:root {
+  --pwc-link-color: #{colors-light.$pwc-link-color};
+  --pwc-citation-color: #{colors-light.$pwc-citation-color};
+  --pwc-citation-color-missing: #cc0000;
+  --pwc-citation-underline-color: #cc0000;
+  --pwc-citation-underline-color-missing: #cc0000;
+  --pwc-citation-formatting-color: #cc0000;
+  --pwc-citation-extra-color: #cc0000;
+  --cursor-link: pointer;
+}
+
+.theme-dark {
+  --pwc-link-color: #{colors-dark.$pwc-link-color};
+  --pwc-citation-color: #{colors-dark.$pwc-citation-color};
+  --pwc-citation-color-missing: #F38D70;
+  --pwc-citation-underline-color: #F38D70;
+  --pwc-citation-underline-color-missing: #F38D70;
+  --pwc-citation-formatting-color: #F38D70;
+  --pwc-citation-extra-color: #F38D70;
+}
+

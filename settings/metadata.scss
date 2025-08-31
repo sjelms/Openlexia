@@ -1,0 +1,14 @@
+/* Metadata related color variables */
+@use 'colors-dark';
+@use 'colors-light';
+
+:root {
+  --metadata-link-flair-color: #000000;
+  --metadata-link-inner-color: #{colors-light.$link-internal-color};
+}
+
+.theme-dark {
+  --metadata-link-flair-color: #ffd76d;
+  --metadata-link-inner-color: #{colors-dark.$link-internal-color};
+}
+

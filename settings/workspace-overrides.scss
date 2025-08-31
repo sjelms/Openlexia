@@ -1,0 +1,34 @@
+/* Workspace background + UI color overrides */
+@use 'colors-dark';
+@use 'colors-light';
+
+body.theme-dark {
+  background-color: colors-dark.$background;
+  color: colors-dark.$text;
+
+  /* Workspace color overrides */
+  --background-primary: #2c2525;
+  --tab-background-active: #2c2525;
+  --tab-outline-color: #72696a;
+  --tab-divider-color: #ffd76d;
+  --titlebar-background-focused: #282a3a;
+  --background-secondary: #282a3a;
+  --background-modifier-border: #5b5353;
+  --background-modifier-message: #282a3a;
+}
+
+body.theme-light {
+  background-color: colors-light.$background;
+  color: colors-light.$text;
+
+  /* Workspace color overrides */
+  --background-primary: #f6f0f0;
+  --tab-background-active: #f6f0f0;
+  --tab-outline-color: #b8b1b1;
+  --tab-divider-color: #884800;
+  --titlebar-background-focused: #eaeaf7;
+  --background-secondary: #eaeaf7;
+  --background-modifier-border: #bcb4b4;
+  --background-modifier-message: #884800;
+}
+

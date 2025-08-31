@@ -6,165 +6,20 @@
 @use 'settings/style-settings.scss';
 @use 'features/rainbow-folders/index';
 @use 'settings/decorations.scss';
+@use 'settings/rainbow-accents.scss';
+@use 'settings/workspace-overrides.scss';
+@use 'settings/code-colors.scss';
+@use 'settings/links-tags.scss';
+@use 'settings/metadata.scss';
+@use 'settings/pwc.scss';
 
-/* --- Links & Tags Variables --- */
-:root {
-  /* Links */
-  --link-internal-color: #0000ee;
-  --link-internal-hover-color: #0000ee;
-  --link-external-color: #0000ee;
-  --link-external-hover-color: #0000ee;
-
-  /* Tags */
-  --tag-color: #5460ab; /* light mode default */
-  --tag-hover-color: #dc388f; /* light mode default */
-  --tag-background: none;
-  --tag-background-hover: none;
-  --tag-padding-x: 0.1em;
-  --tag-padding-y: 0.2em;
-  --tag-border-width: 0px;
-  --tag-radius: 0px;
-  --tag-border-color: var(--tag-color);
-  --tag-size: inherit;
-  --tag-weight: inherit;
-  --list-marker-color: #0B9EBF;
-
-  /* Pandoc/WriterCitations defaults (light) */
-  --pwc-link-color: #{colors-light.$pwc-link-color};
-  --pwc-citation-color: #{colors-light.$pwc-citation-color};
-  --pwc-citation-color-missing: #cc0000;
-  --pwc-citation-underline-color: #cc0000;
-  --pwc-citation-underline-color-missing: #cc0000;
-  --pwc-citation-formatting-color: #cc0000;
-  --pwc-citation-extra-color: #cc0000;
-  --cursor-link: pointer;
-
-  /* Metadata defaults (light) */
-  --metadata-link-flair-color: #000000;
-  --metadata-link-inner-color: #0000ee;
-}
-
-.theme-dark {
-  /* Links */
-  --link-internal-color: #41BF9B;
-  --link-internal-hover-color: #41BF9B;
-  --link-external-color: #AABF0B;
-  --link-external-hover-color: #AABF0B;
-
-  /* Rainbow Folders Accent Colors (RGB for rgba()) */
-  --color-accent1: 255, 101, 122; /* #ff657a */
-  --color-accent2: 255, 155, 94;  /* #ff9b5e */
-  --color-accent3: 255, 215, 109; /* #ffd76d */
-  --color-accent4: 186, 215, 97;  /* #bad761 */
-  --color-accent5: 156, 209, 187; /* #9cd1bb */
-  --color-accent6: 195, 154, 201; /* #c39ac9 */
-
-  /* Core RGB colors for rainbow feature */
-  --color-background: 40, 42, 58; /* #282a3a */
-  --color-text: 234, 242, 241;    /* #eaf2f1 */
-  --color-dark1: 30, 31, 43;      /* #1e1f2b */
-  --color-dark2: 22, 24, 33;      /* #161821 */
-
-  /* Tags */
-  --tag-color: #8A9697; /* dark mode default */
-  --tag-hover-color: #41BF9B; /* dark mode default */
-  --tag-border-color: var(--tag-color);
-  --tag-size: inherit;
-  --tag-weight: inherit;
-  --list-marker-color: #0B9EBF;
-
-  /* Pandoc/WriterCitations defaults (dark) */
-  --pwc-link-color: #{colors-dark.$pwc-link-color};
-  --pwc-citation-color: #{colors-dark.$pwc-citation-color};
-  --pwc-citation-color-missing: #F38D70;
-  --pwc-citation-underline-color: #F38D70;
-  --pwc-citation-underline-color-missing: #F38D70;
-  --pwc-citation-formatting-color: #F38D70;
-  --pwc-citation-extra-color: #F38D70;
-
-  /* Metadata defaults (dark) */
-  --metadata-link-flair-color: #ffd76d;
-  --metadata-link-inner-color: #41BF9B;
-}
-
-/* Light theme variables */
-.theme-light {
-  /* Links */
-  --link-internal-color: #{colors-light.$link-internal-color};
-  --link-internal-hover-color: #{colors-light.$link-internal-color};
-  --link-external-color: #{colors-light.$link-external-color};
-  --link-external-hover-color: #{colors-light.$link-external-color};
-
-  /* Rainbow Folders Accent Colors for Light theme (borrowed from headings) */
-  --color-accent1: 177, 104, 3;   /* #b16803 -> H1 */
-  --color-accent2: 212, 87, 43;   /* #d4572b -> H2 */
-  --color-accent3: 28, 140, 168;  /* #1c8ca8 -> H3 */
-  --color-accent4: 33, 136, 113;  /* #218871 -> H4 */
-  --color-accent5: 104, 81, 162;  /* #6851a2 -> H5 */
-  --color-accent6: 225, 71, 117;  /* #e14775 -> H6 */
-
-  /* Core RGB colors for rainbow + UI harmony */
-  --color-background: 248, 239, 231; /* #f8efe7 */
-  --color-text: 44, 35, 46;          /* #2c232e */
-  --color-dark1: 114, 105, 109;      /* #72696d */
-  --color-dark2: 44, 35, 46;         /* reuse text as dark base */
-}
+/* Color variables moved to settings/links-tags.scss, settings/metadata.scss, settings/pwc.scss */
 
 /* Apply background and base text color */
-body.theme-dark {
-  background-color: colors-dark.$background;
-  color: colors-dark.$text;
-
-  /* Workspace color overrides */
-  --background-primary: #2c2525;
-  --tab-background-active: #2c2525;
-  --tab-outline-color: #72696a;
-  --tab-divider-color: #ffd76d;
-  --titlebar-background-focused: #282a3a;
-  --background-secondary: #282a3a;
-  --background-modifier-border: #5b5353;
-  --background-modifier-message: #282a3a;
-
-  /* Heading variables are controlled via Style Settings. */
-
-}
-
-body.theme-light {
-  background-color: colors-light.$background;
-  color: colors-light.$text;
-
-  /* Workspace color overrides */
-  --background-primary: #f8efe7;
-  --tab-background-active: #f8efe7;
-  --tab-outline-color: #a59c9c;
-  --tab-divider-color: #92898a;
-  --titlebar-background-focused: #fdf7f3;
-  --background-secondary: #eee5de;
-  --background-modifier-border: #a59c9c;
-  --background-modifier-message: #fdf7f3;
-}
+/* Workspace colors and base backgrounds handled in settings/workspace-overrides.scss */
 
 /* Light theme variables */
 .theme-light {
-  /* Links */
-  --link-internal-color: #{colors-light.$link-internal-color};
-  --link-internal-hover-color: #{colors-light.$link-internal-color};
-  --link-external-color: #{colors-light.$link-external-color};
-  --link-external-hover-color: #{colors-light.$link-external-color};
-
-  /* Rainbow Folders Accent Colors (RGB for rgba()) */
-  --color-accent1: 255, 101, 122; /* #ff657a */
-  --color-accent2: 255, 155, 94;  /* #ff9b5e */
-  --color-accent3: 255, 215, 109; /* #ffd76d */
-  --color-accent4: 186, 215, 97;  /* #bad761 */
-  --color-accent5: 156, 209, 187; /* #9cd1bb */
-  --color-accent6: 195, 154, 201; /* #c39ac9 */
-
-  /* Core RGB colors for rainbow + UI harmony */
-  --color-background: 248, 239, 231; /* #f8efe7 */
-  --color-text: 44, 35, 46;          /* #2c232e */
-  --color-dark1: 114, 105, 109;      /* #72696d */
-  --color-dark2: 44, 35, 46;         /* reuse text as dark base */
 
   /* Typography defaults (light) via CSS vars */
   --body-text-color: #{colors-light.$text};
@@ -191,20 +46,7 @@ body.theme-light {
   --metadata-link-inner-color: #41BF9B;
 }
 
-body.theme-light {
-  background-color: colors-light.$background;
-  color: colors-light.$text;
-
-  /* Workspace color overrides (light) */
-  --background-primary: #f6f0f0;
-  --tab-background-active: #f6f0f0;
-  --tab-outline-color: #b8b1b1;
-  --tab-divider-color: #884800;
-  --titlebar-background-focused: #eaeaf7;
-  --background-secondary: #eaeaf7;
-  --background-modifier-border: #bcb4b4;
-  --background-modifier-message: #884800;
-}
+/* Workspace colors and base backgrounds handled in settings/workspace-overrides.scss */
 
 /* === Body Text Leading & Line Spacing === */
 .markdown-preview-view,
@@ -288,9 +130,11 @@ body.theme-light {
 .markdown-source-view .inline-code,
 .markdown-reading-view .inline-code,
 .cm-content .inline-code,
-.cm-s-obsidian .inline-code {
-  background-color: var(--inline-code-background-color, colors-dark.$inline-code-bg);
-  color: var(--inline-code-text-color, colors-dark.$inline-code-text);
+.cm-s-obsidian .inline-code,
+/* Live Preview/Editor inline code token */
+.cm-s-obsidian span.cm-inline-code {
+  background-color: var(--inline-code-background-color);
+  color: var(--inline-code-text-color);
   padding: 2px 4px;
   border-radius: 4px;
   /* Use the same monospace face and size as metadata inputs */
@@ -309,8 +153,8 @@ body.theme-light {
 .HyperMD-codeblock-end,
 .markdown-preview-view .markdown-rendered pre,
 .cm-s-obsidian div.HyperMD-codeblock-bg {
-  background-color: var(--code-background-color, colors-dark.$code-bg) !important;
-  color: var(--code-text-color, colors-dark.$code-text) !important;
+  background-color: var(--code-background-color) !important;
+  color: var(--code-text-color) !important;
   padding: 2em;
   line-height: 1.8em; // Ensure it matches or exceeds flair size
   border-radius: 0px;
@@ -340,6 +184,20 @@ body.theme-light {
 
 .cm-code-block-flair:hover svg {
   filter: brightness(1.2);
+}
+
+/* === Horizontal Rule === */
+.markdown-preview-view hr,
+.markdown-reading-view hr,
+.markdown-rendered hr,
+.cm-content hr,
+.cm-s-obsidian hr,
+.cm-s-obsidian .HyperMD-hr hr {
+  border: 0;
+  border-top: 2px solid var(--tab-divider-color);
+  height: 0;
+  margin: 1.5em 0;
+  opacity: 1;
 }
 
 

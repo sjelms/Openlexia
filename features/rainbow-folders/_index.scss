@@ -1,7 +1,6 @@
 /*===============================================================
 * RAINBOW FOLDERS
 *===============================================================*/
-@import "colors";
-@import "full-rainbow";
-@import "simple-rainbow";
-
+@use "colors";
+@use "full-rainbow";
+@use "simple-rainbow";

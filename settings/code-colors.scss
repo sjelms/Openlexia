@@ -1,0 +1,20 @@
+/* Code colors exposed as CSS variables per theme */
+@use 'colors-dark';
+@use 'colors-light';
+
+.theme-dark {
+  --inline-code-text-color: #{colors-dark.$inline-code-text};
+  --inline-code-background-color: #{colors-dark.$inline-code-bg};
+  --code-text-color: #{colors-dark.$code-text};
+  --code-background-color: #{colors-dark.$code-bg};
+  --code-icon-color: #{colors-dark.$icon-color};
+}
+
+.theme-light {
+  --inline-code-text-color: #{colors-light.$inline-code-text};
+  --inline-code-background-color: #{colors-light.$inline-code-bg};
+  --code-text-color: #{colors-light.$code-text};
+  --code-background-color: #{colors-light.$code-bg};
+  --code-icon-color: #{colors-light.$icon-color};
+}
+
