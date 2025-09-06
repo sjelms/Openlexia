@@ -364,6 +364,32 @@ body .multi-select-pill {
 }
 
 /* --- Pandoc/WriterCitations overrides --- */
+/* Ensure citations inherit surrounding typography (size/weight/line-height/style) */
+.pandoc-citation {
+  font-size: inherit !important;
+  font-weight: inherit !important;
+  line-height: inherit !important;
+  font-style: inherit !important;
+}
+
+/* Match citation size to heading size in Live Preview headers */
+.HyperMD-header-1 :is(.pandoc-citation, .at) {
+  font-size: var(--heading-1-font-size, 28pt) !important;
+  line-height: var(--heading-1-line-height, 2.3) !important;
+}
+.HyperMD-header-2 :is(.pandoc-citation, .at) {
+  font-size: var(--heading-2-font-size, 28pt) !important;
+  line-height: var(--heading-2-line-height, 2.3) !important;
+}
+.HyperMD-header-3 :is(.pandoc-citation, .at) {
+  font-size: var(--heading-3-font-size, 28pt) !important;
+  line-height: var(--heading-3-line-height, 2.3) !important;
+}
+.HyperMD-header-4 :is(.pandoc-citation, .at) {
+  font-size: var(--heading-4-font-size, 28pt) !important;
+  line-height: var(--heading-4-line-height, 2.3) !important;
+}
+
 /* Remove underline decorations on resolved citations */
 .pwc-tooltips :not(.cm-link-alias) > :is(.pandoc-citation, .at).is-resolved {
   text-decoration: none !important;
