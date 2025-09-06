@@ -9,6 +9,8 @@
   --link-internal-hover-color: #{colors-light.$link-internal-color};
   --link-external-color: #{colors-light.$link-external-color};
   --link-external-hover-color: #{colors-light.$link-external-color};
+  /* Unresolved internal links */
+  --link-internal-unresolved-color: #{colors-light.$link-internal-color-unresolved};
 
   /* Tags (defaults; Style Settings may override) */
   --tag-color: #5460ab;
@@ -33,6 +35,8 @@
   --link-internal-hover-color: #{colors-dark.$link-internal-color};
   --link-external-color: #{colors-dark.$link-external-color};
   --link-external-hover-color: #{colors-dark.$link-external-color};
+  /* Unresolved internal links */
+  --link-internal-unresolved-color: #{colors-dark.$link-internal-color-unresolved};
 
   /* Tags */
   --tag-color: #8A9697;
@@ -44,4 +48,3 @@
   /* Lists */
   --list-marker-color: #{colors-dark.$list-marker-color};
 }
-

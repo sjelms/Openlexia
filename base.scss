@@ -233,6 +233,17 @@
   text-decoration: none !important;
 }
 
+/* Unresolved internal links: scoped only to elements flagged with .is-unresolved */
+.markdown-preview-view a.internal-link.is-unresolved,
+.markdown-source-view a.internal-link.is-unresolved,
+.markdown-reading-view a.internal-link.is-unresolved,
+.markdown-rendered a.internal-link.is-unresolved,
+.metadata-link-inner.internal-link.is-unresolved,
+.cm-s-obsidian .cm-hmd-internal-link .is-unresolved,
+.cm-s-obsidian .cm-hmd-internal-link .is-unresolved a {
+  color: var(--link-internal-unresolved-color) !important;
+}
+
 // External link styling: high specificity and coverage
 .markdown-preview-view a.external-link,
 .markdown-source-view a.external-link,
