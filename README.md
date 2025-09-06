@@ -1,6 +1,6 @@
 # Openlexia
 
-**A clean, accessible Obsidian theme for academic writing.**  
+**A clean, accessible Obsidian theme for academic writing.**
 Built from scratch for clarity, contrast, and ease of use—especially for users with ADHD and/or Dyslexia.
 
 ## ✨ Features

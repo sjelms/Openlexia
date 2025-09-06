@@ -18,3 +18,17 @@
   --code-icon-color: #{colors-light.$icon-color};
 }
 
+/* Override CodeMirror token color that defaults to #00bfbc in Obsidian */
+/* Dark mode: use blockquote text color (fallback to dark palette) */
+.theme-dark .cm-hmd-codeblock .cm-variable-2,
+.theme-dark .HyperMD-codeblock .cm-variable-2,
+.theme-dark .cm-s-obsidian .cm-hmd-codeblock span.cm-variable-2 {
+  color: var(--blockquote-text-color, #{colors-dark.$blockquote-color}) !important;
+}
+
+/* Light mode: use blockquote text color (fallback to light palette) */
+.theme-light .cm-hmd-codeblock .cm-variable-2,
+.theme-light .HyperMD-codeblock .cm-variable-2,
+.theme-light .cm-s-obsidian .cm-hmd-codeblock span.cm-variable-2 {
+  color: var(--blockquote-text-color, #{colors-light.$blockquote-color}) !important;
+}
