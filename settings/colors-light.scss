@@ -62,8 +62,11 @@ $table-row-bg: #fdf7f3;
 $formatting-link-color: #ce4770;
 $url-color: #ce4770;
 $meta-color: #ce4770;
-$hashtag-color: #ce4770;
 $hr-line-color: #b16803;
+
+/* NOTE: Hashtag/tag colors are managed via CSS variables in
+   `settings/links-tags.scss` (see `--tag-color`, `--tag-hover-color`, etc.).
+   They are also exposed to the Style Settings plugin. */
 
 /* === Pandoc/WriterCitations (light) === */
 $pwc-link-color: #92898A;

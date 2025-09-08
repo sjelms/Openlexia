@@ -16,8 +16,8 @@ $blockquote-color: #AFB0B3;
 $code-bg: #203447;
 $code-text: #F2FFF1;
 $code-border-color: #395C3C;
-$inline-code-text: #203447;
-$inline-code-bg: #b2b9bd;
+$inline-code-text: #8a9697;
+$inline-code-bg: #203447;
 $icon-color: #CCCCCC;
 
 
@@ -57,8 +57,11 @@ $table-row-bg: #0E1E28;
 $formatting-link-color: #F20CB5;
 $url-color: #F20CB5;
 $meta-color: #F20CB5;
-$hashtag-color: #F20CB5;
 $hr-line-color: #F20CB5;
+
+/* NOTE: Hashtag/tag colors are managed via CSS variables in
+   `settings/links-tags.scss` (see `--tag-color`, `--tag-hover-color`, etc.).
+   They are also exposed to the Style Settings plugin. */
 
 /* === Pandoc/WriterCitations (dark) === */
 $pwc-link-color: #F9CC6C;

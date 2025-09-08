@@ -258,6 +258,19 @@
   text-decoration: none !important;
 }
 
+/* === Live Preview: Hide HTML comments (not in code blocks) === */
+/* Obsidian Live Preview uses CM6; HTML comments render as .cm-comment.
+   We hide them in Live Preview but keep them visible in Source mode and
+   preserve comments inside fenced code blocks. */
+.markdown-source-view.is-live-preview span.cm-comment {
+  display: none;
+}
+
+/* Re-show comments inside code blocks */
+.markdown-source-view.is-live-preview .HyperMD-codeblock span.cm-comment {
+  display: inline;
+}
+
 /* Hover styles */
 .markdown-preview-view a.internal-link:hover,
 .markdown-source-view a.internal-link:hover,
