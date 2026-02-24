@@ -23,7 +23,7 @@ settings:
   - id: heading-1-font-size
     title: Font Size
     type: variable-number
-    default: 28
+    default: 21
     format: pt
 
   - id: heading-1-line-height
@@ -47,7 +47,7 @@ settings:
   - id: heading-1-color
     title: Color
     type: variable-themed-color
-    default-light: '#000000'
+    default-light: '#202959'
     default-dark: '#D96C0D'
     format: hex
 
@@ -60,7 +60,7 @@ settings:
   - id: heading-2-font-size
     title: Font Size
     type: variable-number
-    default: 28
+    default: 21
     format: pt
 
   - id: heading-2-line-height
@@ -84,7 +84,7 @@ settings:
   - id: heading-2-color
     title: Color
     type: variable-themed-color
-    default-light: '#000000'
+    default-light: '#0378A6'
     default-dark: '#F25C05'
     format: hex
 
@@ -97,7 +97,7 @@ settings:
   - id: heading-3-font-size
     title: Font Size
     type: variable-number
-    default: 28
+    default: 21
     format: pt
 
   - id: heading-3-line-height
@@ -121,7 +121,7 @@ settings:
   - id: heading-3-color
     title: Color
     type: variable-themed-color
-    default-light: '#000000'
+    default-light: '#024059'
     default-dark: '#F29F05'
     format: hex
 
@@ -134,7 +134,7 @@ settings:
   - id: heading-4-font-size
     title: Font Size
     type: variable-number
-    default: 28
+    default: 21
     format: pt
 
   - id: heading-4-line-height
@@ -158,7 +158,7 @@ settings:
   - id: heading-4-color
     title: Color
     type: variable-themed-color
-    default-light: '#000000'
+    default-light: '#7EC8D9'
     default-dark: '#BF6B04'
     format: hex
 
@@ -183,7 +183,7 @@ settings:
   - id: heading-5-color
     title: Color
     type: variable-themed-color
-    default-light: '#000000'
+    default-light: '#16288C'
     default-dark: '#B149BF'
     format: hex
 
@@ -208,7 +208,7 @@ settings:
   - id: heading-6-color
     title: Color
     type: variable-themed-color
-    default-light: '#000000'
+    default-light: '#EC5A76'
     default-dark: '#F2E63D'
     format: hex
 
@@ -222,7 +222,7 @@ settings:
   - id: body-font-size
     title: Body Font Size
     type: variable-number
-    default: 24
+    default: 18
     format: pt
 
   - id: body-line-height
@@ -240,7 +240,7 @@ settings:
   - id: body-text-color
     title: Body Text Color
     type: variable-themed-color
-    default-light: '#000000'
+    default-light: '#161616'
     default-dark: '#D9D9D9'
     format: hex
 
@@ -283,14 +283,14 @@ settings:
   - id: list-marker-color
     title: List Marker Color
     type: variable-themed-color
-    default-light: '#444444'
+    default-light: '#3F758F'
     default-dark: '#0B9EBF'
     format: hex
 
   - id: checkbox-color
     title: Checkbox Marker Color
     type: variable-themed-color
-    default-light: '#000000'
+    default-light: '#3F758F'
     default-dark: '#0B9EBF'
     format: hex
 
@@ -338,21 +338,21 @@ settings:
   - id: blockquote-text-color
     title: Blockquote Text Color
     type: variable-themed-color
-    default-light: '#000000'
+    default-light: '#545151'
     default-dark: '#591202'
     format: hex
 
   - id: blockquote-background-color
     title: Blockquote Background
     type: variable-themed-color
-    default-light: '#f0f0f0'
+    default-light: '#FFFFFF'
     default-dark: '#1b2b40'
     format: hex
 
   - id: blockquote-border-color
     title: Blockquote Border
     type: variable-themed-color
-    default-light: '#cccccc'
+    default-light: '#5C997C'
     default-dark: '#8C6A03'
     format: hex
 
@@ -365,35 +365,35 @@ settings:
   - id: inline-code-text-color
     title: Inline Code Text Color
     type: variable-themed-color
-    default-light: '#000000'
+    default-light: '#161616'
     default-dark: '#F20CB5'
     format: hex
 
   - id: inline-code-background-color
     title: Inline Code Background
     type: variable-themed-color
-    default-light: '#eeeeee'
+    default-light: '#EDEAE0'
     default-dark: '#0B2D48'
     format: hex
 
   - id: code-text-color
     title: Code Block Text Color
     type: variable-themed-color
-    default-light: '#000000'
+    default-light: '#161616'
     default-dark: '#D9D9D9'
     format: hex
 
   - id: code-background-color
     title: Code Block Background
     type: variable-themed-color
-    default-light: '#f4f4f4'
+    default-light: '#EDEAE0'
     default-dark: '#0B2D48'
     format: hex
 
   - id: code-icon-color
     title: Code Icon Color
     type: variable-themed-color
-    default-light: '#CCCCCC'
+    default-light: '#545151'
     default-dark: '#CCCCCC'
     format: hex
 
@@ -407,13 +407,13 @@ settings:
   - id: link-internal-color
     title: Internal Link Color
     type: variable-themed-color
-    default-light: '#0000ee'
+    default-light: '#8C355E'
     default-dark: '#41BF9B'
     format: hex
   - id: link-internal-hover-color
     title: Internal Link Hover Color
     type: variable-themed-color
-    default-light: '#0000ee'
+    default-light: '#8C355E'
     default-dark: '#41BF9B'
     format: hex
 
@@ -421,13 +421,13 @@ settings:
   - id: link-external-color
     title: External Link Color
     type: variable-themed-color
-    default-light: '#0000ee'
+    default-light: '#D9436B'
     default-dark: '#AABF0B'
     format: hex
   - id: link-external-hover-color
     title: External Link Hover Color
     type: variable-themed-color
-    default-light: '#0000ee'
+    default-light: '#D9436B'
     default-dark: '#AABF0B'
     format: hex
 
@@ -435,13 +435,13 @@ settings:
   - id: tag-color
     title: Tag Color
     type: variable-themed-color
-    default-light: '#5460ab' # Example from Shimmering
+    default-light: '#8C355E'
     default-dark: '#8c96d9' # Example from Shimmering
     format: hex
   - id: tag-hover-color
     title: Tag Hover Color
     type: variable-themed-color
-    default-light: '#dc388f' # Example from Shimmering
+    default-light: '#D9436B'
     default-dark: '#ed5aa8' # Example from Shimmering
     format: hex
   - id: tag-decoration-hover
@@ -492,28 +492,28 @@ settings:
   - id: emphasis-bold-color
     title: Bold Text Color
     type: variable-themed-color
-    default-light: '#000000'
+    default-light: '#A62F03'
     default-dark: '#23A5D9'
     format: hex
 
   - id: emphasis-italic-color
     title: Emphasis Italic Text Color
     type: variable-themed-color
-    default-light: '#000000'
+    default-light: '#93A651'
     default-dark: '#03A696'
     format: hex
 
   - id: emphasis-strikethrough-color
     title: Strikethrough Text Color
     type: variable-themed-color
-    default-light: '#000000'
+    default-light: '#6891B5'
     default-dark: '#6093BF'
     format: hex
 
   - id: emphasis-bolditalic-color
     title: Bold + Italic Text Color
     type: variable-themed-color
-    default-light: '#000000'
+    default-light: '#205677'
     default-dark: '#07F2DB'
     format: hex
     
@@ -586,7 +586,7 @@ settings:
   - id: front-meta-color
     title: Metadata Text Color
     type: variable-themed-color
-    default-light: '#2c232e'
+    default-light: '#161616'
     default-dark: '#D9D9D9'
     format: hex
 
@@ -600,7 +600,7 @@ settings:
   - id: metadata-link-inner-color
     title: Metadata Internal Link Color
     type: variable-themed-color
-    default-light: '#41BF9B'
+    default-light: '#8C355E'
     default-dark: '#41BF9B'
     format: hex
 
@@ -620,14 +620,14 @@ settings:
   - id: pwc-link-color
     title: Pandoc Link Color
     type: variable-themed-color
-    default-light: '#92898A'
+    default-light: '#3F758F'
     default-dark: '#F9CC6C'
     format: hex
 
   - id: pwc-citation-color
     title: Pandoc Citation Color
     type: variable-themed-color
-    default-light: '#92898A'
+    default-light: '#545151'
     default-dark: '#948A8B'
     format: hex
 

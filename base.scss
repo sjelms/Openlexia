@@ -43,7 +43,7 @@
   --blockquote-text-color: #{colors-light.$blockquote-color};
 
   /* Metadata defaults (light) */
-  --metadata-link-inner-color: #41BF9B;
+  --metadata-link-inner-color: #8C355E;
 }
 
 /* Workspace colors and base backgrounds handled in settings/workspace-overrides.scss */
@@ -57,7 +57,7 @@
   color: var(--body-text-color, colors-dark.$text);
   line-height: var(--body-line-height, 1.7); // Adjust for leading
   letter-spacing: var(--body-letter-spacing, 0.015em); // Optional: subtle tracking
-  font-size: var(--body-font-size, 24pt);
+  font-size: var(--body-font-size, 18pt);
 }
 
 /* === Emphasis === */
@@ -233,6 +233,13 @@
   text-decoration: none !important;
 }
 
+/* Editor: CodeMirror token spans for internal links */
+.cm-s-obsidian span.cm-hmd-internal-link,
+.cm-s-obsidian span.cm-link.cm-hmd-internal-link,
+.cm-s-obsidian span.cm-underline.cm-hmd-internal-link {
+  color: var(--link-internal-color, colors-dark.$link-internal-color) !important;
+}
+
 /* Unresolved internal links: scoped only to elements flagged with .is-unresolved */
 .markdown-preview-view a.internal-link.is-unresolved,
 .markdown-source-view a.internal-link.is-unresolved,
@@ -241,6 +248,12 @@
 .metadata-link-inner.internal-link.is-unresolved,
 .cm-s-obsidian .cm-hmd-internal-link .is-unresolved,
 .cm-s-obsidian .cm-hmd-internal-link .is-unresolved a {
+  color: var(--link-internal-unresolved-color) !important;
+}
+
+.cm-s-obsidian span.cm-hmd-internal-link.is-unresolved,
+.cm-s-obsidian span.cm-link.cm-hmd-internal-link.is-unresolved,
+.cm-s-obsidian span.cm-underline.cm-hmd-internal-link.is-unresolved {
   color: var(--link-internal-unresolved-color) !important;
 }
 
@@ -256,6 +269,13 @@
 .markdown-rendered a:not(.internal-link) {
   color: var(--link-external-color, colors-dark.$link-external-color) !important;
   text-decoration: none !important;
+}
+
+/* Editor: CodeMirror token spans for external/URL links */
+.cm-s-obsidian span.cm-link:not(.cm-hmd-internal-link),
+.cm-s-obsidian span.cm-url,
+.cm-s-obsidian span.cm-underline.cm-link:not(.cm-hmd-internal-link) {
+  color: var(--link-external-color, colors-dark.$link-external-color) !important;
 }
 
 /* === Live Preview: Hide HTML comments (not in code blocks) === */
@@ -387,19 +407,19 @@ body .multi-select-pill {
 
 /* Match citation size to heading size in Live Preview headers */
 .HyperMD-header-1 :is(.pandoc-citation, .at) {
-  font-size: var(--heading-1-font-size, 28pt) !important;
+  font-size: var(--heading-1-font-size, 21pt) !important;
   line-height: var(--heading-1-line-height, 2.3) !important;
 }
 .HyperMD-header-2 :is(.pandoc-citation, .at) {
-  font-size: var(--heading-2-font-size, 28pt) !important;
+  font-size: var(--heading-2-font-size, 21pt) !important;
   line-height: var(--heading-2-line-height, 2.3) !important;
 }
 .HyperMD-header-3 :is(.pandoc-citation, .at) {
-  font-size: var(--heading-3-font-size, 28pt) !important;
+  font-size: var(--heading-3-font-size, 21pt) !important;
   line-height: var(--heading-3-line-height, 2.3) !important;
 }
 .HyperMD-header-4 :is(.pandoc-citation, .at) {
-  font-size: var(--heading-4-font-size, 28pt) !important;
+  font-size: var(--heading-4-font-size, 21pt) !important;
   line-height: var(--heading-4-line-height, 2.3) !important;
 }
 
@@ -476,25 +496,25 @@ body .multi-select-pill:hover {
 /* === Headings === */
 .cm-header-1 { 
   color: var(--heading-1-color, #{colors-dark.$h1-color}); 
-  font-size: var(--heading-1-font-size, 28pt);
+  font-size: var(--heading-1-font-size, 21pt);
   line-height: var(--heading-1-line-height, 1.2);
   letter-spacing: var(--heading-1-letter-spacing, 0em);
 }
 .cm-header-2 { 
   color: var(--heading-2-color, #{colors-dark.$h2-color}); 
-  font-size: var(--heading-2-font-size, 28pt);
+  font-size: var(--heading-2-font-size, 21pt);
   line-height: var(--heading-2-line-height, 1.2);
   letter-spacing: var(--heading-2-letter-spacing, 0em);
 }
 .cm-header-3 { 
   color: var(--heading-3-color, #{colors-dark.$h3-color}); 
-  font-size: var(--heading-3-font-size, 28pt);
+  font-size: var(--heading-3-font-size, 21pt);
   line-height: var(--heading-3-line-height, 1.2);
   letter-spacing: var(--heading-3-letter-spacing, 0em);
 }
 .cm-header-4 { 
   color: var(--heading-4-color, #{colors-dark.$h4-color}); 
-  font-size: var(--heading-4-font-size, 28pt);
+  font-size: var(--heading-4-font-size, 21pt);
   line-height: var(--heading-4-line-height, 1.2);
   letter-spacing: var(--heading-4-letter-spacing, 0em);
 }
@@ -505,38 +525,38 @@ body .multi-select-pill:hover {
    font-size via `.HyperMD-header .cm-header-* { font-size: inherit !important; }`.
    Override that so Style Settings controls actually apply. */
 .HyperMD-header .cm-header-1 { 
-  font-size: var(--heading-1-font-size, 28pt) !important;
+  font-size: var(--heading-1-font-size, 21pt) !important;
   line-height: var(--heading-1-line-height, 2.3) !important;
   letter-spacing: var(--heading-1-letter-spacing, 0em) !important;
 }
 .HyperMD-header .cm-header-2 { 
-  font-size: var(--heading-2-font-size, 28pt) !important;
+  font-size: var(--heading-2-font-size, 21pt) !important;
   line-height: var(--heading-2-line-height, 2.3) !important;
   letter-spacing: var(--heading-2-letter-spacing, 0em) !important;
 }
 .HyperMD-header .cm-header-3 { 
-  font-size: var(--heading-3-font-size, 28pt) !important;
+  font-size: var(--heading-3-font-size, 21pt) !important;
   line-height: var(--heading-3-line-height, 2.3) !important;
   letter-spacing: var(--heading-3-letter-spacing, 0em) !important;
 }
 .HyperMD-header .cm-header-4 { 
-  font-size: var(--heading-4-font-size, 28pt) !important;
+  font-size: var(--heading-4-font-size, 21pt) !important;
   line-height: var(--heading-4-line-height, 2.3) !important;
   letter-spacing: var(--heading-4-letter-spacing, 0em) !important;
 }
 
 /* Stronger specificity to override Obsidian defaults */
 .cm-s-obsidian .HyperMD-header .cm-header-1 { 
-  font-size: var(--heading-1-font-size, 28pt) !important;
+  font-size: var(--heading-1-font-size, 21pt) !important;
 }
 .cm-s-obsidian .HyperMD-header .cm-header-2 { 
-  font-size: var(--heading-2-font-size, 28pt) !important;
+  font-size: var(--heading-2-font-size, 21pt) !important;
 }
 .cm-s-obsidian .HyperMD-header .cm-header-3 { 
-  font-size: var(--heading-3-font-size, 28pt) !important;
+  font-size: var(--heading-3-font-size, 21pt) !important;
 }
 .cm-s-obsidian .HyperMD-header .cm-header-4 { 
-  font-size: var(--heading-4-font-size, 28pt) !important;
+  font-size: var(--heading-4-font-size, 21pt) !important;
 }
 
 .markdown-preview-view h1,
@@ -545,7 +565,7 @@ body .multi-select-pill:hover {
 .cm-content h1,
 .cm-s-obsidian .cm-header-1 {
   color: var(--heading-1-color, colors-dark.$h1-color);
-  font-size: var(--heading-1-font-size, 28pt) !important;
+  font-size: var(--heading-1-font-size, 21pt) !important;
   line-height: var(--heading-1-line-height, 2.3);
   letter-spacing: var(--heading-1-letter-spacing, 0em);
   margin-bottom: var(--heading-1-spacing-after, 0.75em);
@@ -557,7 +577,7 @@ body .multi-select-pill:hover {
 .cm-content h2,
 .cm-s-obsidian .cm-header-2 {
   color: var(--heading-2-color, colors-dark.$h2-color);
-  font-size: var(--heading-2-font-size, 28pt) !important;
+  font-size: var(--heading-2-font-size, 21pt) !important;
   line-height: var(--heading-2-line-height, 2.3);
   letter-spacing: var(--heading-2-letter-spacing, 0em);
   margin-bottom: var(--heading-2-spacing-after, 0.75em);
@@ -569,7 +589,7 @@ body .multi-select-pill:hover {
 .cm-content h3,
 .cm-s-obsidian .cm-header-3 {
   color: var(--heading-3-color, colors-dark.$h3-color);
-  font-size: var(--heading-3-font-size, 28pt) !important;
+  font-size: var(--heading-3-font-size, 21pt) !important;
   line-height: var(--heading-3-line-height, 2.3);
   letter-spacing: var(--heading-3-letter-spacing, 0em);
   margin-bottom: var(--heading-3-spacing-after, 0.75em);
@@ -581,7 +601,7 @@ body .multi-select-pill:hover {
 .cm-content h4,
 .cm-s-obsidian .cm-header-4 {
   color: var(--heading-4-color, colors-dark.$h4-color);
-  font-size: var(--heading-4-font-size, 28pt) !important;
+  font-size: var(--heading-4-font-size, 21pt) !important;
   line-height: var(--heading-4-line-height, 2.3);
   letter-spacing: var(--heading-4-letter-spacing, 0em);
   margin-bottom: var(--heading-4-spacing-after, 0.75em);
@@ -589,13 +609,13 @@ body .multi-select-pill:hover {
 
 /* Reading view extra specificity */
 .markdown-preview-view .markdown-rendered h1,
-.markdown-reading-view .markdown-rendered h1 { font-size: var(--heading-1-font-size, 28pt) !important; line-height: var(--heading-1-line-height, 2.3) !important; }
+.markdown-reading-view .markdown-rendered h1 { font-size: var(--heading-1-font-size, 21pt) !important; line-height: var(--heading-1-line-height, 2.3) !important; }
 .markdown-preview-view .markdown-rendered h2,
-.markdown-reading-view .markdown-rendered h2 { font-size: var(--heading-2-font-size, 28pt) !important; line-height: var(--heading-2-line-height, 2.3) !important; }
+.markdown-reading-view .markdown-rendered h2 { font-size: var(--heading-2-font-size, 21pt) !important; line-height: var(--heading-2-line-height, 2.3) !important; }
 .markdown-preview-view .markdown-rendered h3,
-.markdown-reading-view .markdown-rendered h3 { font-size: var(--heading-3-font-size, 28pt) !important; line-height: var(--heading-3-line-height, 2.3) !important; }
+.markdown-reading-view .markdown-rendered h3 { font-size: var(--heading-3-font-size, 21pt) !important; line-height: var(--heading-3-line-height, 2.3) !important; }
 .markdown-preview-view .markdown-rendered h4,
-.markdown-reading-view .markdown-rendered h4 { font-size: var(--heading-4-font-size, 28pt) !important; line-height: var(--heading-4-line-height, 2.3) !important; }
+.markdown-reading-view .markdown-rendered h4 { font-size: var(--heading-4-font-size, 21pt) !important; line-height: var(--heading-4-line-height, 2.3) !important; }
 
 .markdown-preview-view h5,
 .markdown-source-view h5,
@@ -719,5 +739,5 @@ input.metadata-property-key-input,
 }
 
 .metadata-link-inner.internal-link {
-  color: var(--metadata-link-inner-color, #41BF9B);
+  color: var(--metadata-link-inner-color, #8C355E);
 }

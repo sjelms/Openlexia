@@ -22,13 +22,12 @@ body.theme-light {
   color: colors-light.$text;
 
   /* Workspace color overrides */
-  --background-primary: #f6f0f0;
-  --tab-background-active: #f6f0f0;
-  --tab-outline-color: #b8b1b1;
-  --tab-divider-color: #884800;
-  --titlebar-background-focused: #eaeaf7;
-  --background-secondary: #eaeaf7;
-  --background-modifier-border: #bcb4b4;
-  --background-modifier-message: #884800;
+  --background-primary: #fdfefe;
+  --tab-background-active: #f4f4f0;
+  --tab-outline-color: #8e8c8b;
+  --tab-divider-color: #3f758f;
+  --titlebar-background-focused: #edeae0;
+  --background-secondary: #edeae0;
+  --background-modifier-border: #c7c5c2;
+  --background-modifier-message: #edeae0;
 }
-

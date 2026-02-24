@@ -18,17 +18,16 @@
 
 .theme-light {
   /* Rainbow Folders Accent Colors for Light theme (borrowed from headings) */
-  --color-accent1: 177, 104, 3;   /* #b16803 -> H1 */
-  --color-accent2: 212, 87, 43;   /* #d4572b -> H2 */
-  --color-accent3: 28, 140, 168;  /* #1c8ca8 -> H3 */
-  --color-accent4: 33, 136, 113;  /* #218871 -> H4 */
-  --color-accent5: 104, 81, 162;  /* #6851a2 -> H5 */
-  --color-accent6: 225, 71, 117;  /* #e14775 -> H6 */
+  --color-accent1: 32, 41, 89;    /* #202959 -> H1 */
+  --color-accent2: 3, 120, 166;   /* #0378A6 -> H2 */
+  --color-accent3: 2, 64, 89;     /* #024059 -> H3 */
+  --color-accent4: 126, 200, 217; /* #7EC8D9 -> H4 */
+  --color-accent5: 22, 40, 140;   /* #16288C -> H5 */
+  --color-accent6: 236, 90, 118;  /* #ec5a76 -> H6 */
 
   /* Core RGB colors for rainbow + UI harmony */
-  --color-background: 248, 239, 231; /* #f8efe7 */
-  --color-text: 44, 35, 46;          /* #2c232e */
-  --color-dark1: 114, 105, 109;      /* #72696d */
-  --color-dark2: 44, 35, 46;         /* reuse text as dark base */
+  --color-background: 253, 254, 254; /* #fdfefe */
+  --color-text: 22, 22, 22;          /* #161616 */
+  --color-dark1: 142, 140, 139;      /* #8e8c8b */
+  --color-dark2: 84, 81, 81;         /* #545151 */
 }
-
