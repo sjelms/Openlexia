@@ -20,6 +20,7 @@
 
 /* Light theme variables */
 .theme-light {
+  --background-alt-light: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='4' height='4' viewBox='0 0 4 4'%3E%3Cpath fill='%23000000' fill-opacity='0.12' d='M1 3h1v1H1V3zm2-2h1v1H3V1z'%3E%3C/path%3E%3C/svg%3E");
 
   /* Typography defaults (light) via CSS vars */
   --body-text-color: #{colors-light.$text};
@@ -38,8 +39,12 @@
   --heading-6-color: #{colors-light.$h6-color};
 
   /* Blockquote defaults (light) */
-  --blockquote-border-color: #{colors-light.$blockquote-border};
-  --blockquote-background-color: #{colors-light.$blockquote-background-color};
+  --blockquote-border-thickness: 3px;
+  --blockquote-border-color: var(--interactive-accent);
+  --blockquote-font-style: normal;
+  --blockquote-background-color: transparent;
+  --blockquote-background-image: var(--background-alt-light);
+  --blockquote-padding: 8px;
   --blockquote-text-color: #{colors-light.$blockquote-color};
 
   /* Metadata defaults (light) */
@@ -131,9 +136,11 @@
 .cm-s-obsidian .HyperMD-quote {
   color: var(--blockquote-text-color, colors-dark.$blockquote-color);
   background-color: var(--blockquote-background-color, colors-dark.$blockquote-background-color);
-  border-inline-start: 4px solid var(--blockquote-border-color, colors-dark.$blockquote-border);
-  padding-left: 1em;
+  background-image: var(--blockquote-background-image, none);
+  border-inline-start: var(--blockquote-border-thickness, 4px) solid var(--blockquote-border-color, colors-dark.$blockquote-border);
+  font-style: var(--blockquote-font-style, normal);
   margin: 1em 0;
+  padding: var(--blockquote-padding, 1em);
 }
 
 .cm-s-obsidian span.cm-quote {
