@@ -47,3 +47,21 @@
     + var(--nested-list-indent, 1em)
   ) !important;
 }
+
+/* === Editor list guides === */
+.cm-s-obsidian span.cm-formatting-list,
+.markdown-source-view.mod-cm6 span.cm-formatting-list {
+  color: var(--list-marker-color, #{colors-dark.$list-marker-color});
+}
+
+.markdown-source-view.mod-cm6 .cm-indent::before {
+  border-color: var(--list-marker-color, #{colors-dark.$list-marker-color});
+  border-width: 2px;
+  margin-left: -1px;
+  opacity: 0.35;
+  transition: opacity 500ms ease-in-out;
+}
+
+.markdown-source-view.mod-cm6 .cm-active-indent::before {
+  opacity: 0.8;
+}

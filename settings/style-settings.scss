@@ -225,6 +225,12 @@ settings:
     default: 18
     format: pt
 
+  - id: table-font-size
+    title: Table Font Size
+    type: variable-number
+    default: 18
+    format: pt
+
   - id: body-line-height
     title: Body Text Line Height
     type: variable-number

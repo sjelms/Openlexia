@@ -60,6 +60,26 @@
   font-size: var(--body-font-size, 18pt);
 }
 
+/* === Table Typography === */
+.markdown-preview-view table,
+.markdown-preview-view th,
+.markdown-preview-view td,
+.markdown-reading-view table,
+.markdown-reading-view th,
+.markdown-reading-view td,
+.markdown-rendered table,
+.markdown-rendered th,
+.markdown-rendered td,
+.markdown-source-view.mod-cm6 .cm-table-widget,
+.markdown-source-view.mod-cm6 .cm-table-widget .table-cell-wrapper,
+.markdown-source-view.mod-cm6 .cm-table-widget .table-cell-wrapper .cm-line {
+  color: inherit;
+  font-family: inherit;
+  font-size: var(--table-font-size, var(--body-font-size, 18pt)) !important;
+  letter-spacing: inherit;
+  line-height: inherit;
+}
+
 /* === Emphasis === */
 .markdown-preview-view strong,
 .markdown-source-view strong,
@@ -193,11 +213,35 @@
 .cm-content hr,
 .cm-s-obsidian hr,
 .cm-s-obsidian .HyperMD-hr hr {
-  border: 0;
-  border-top: 2px solid var(--tab-divider-color);
+  border: none;
+  border-bottom: 1px solid;
+  border-image-slice: 1;
+  border-image-source: linear-gradient(to right, transparent, var(--text-accent), transparent);
+  border-width: 1px;
   height: 0;
-  margin: 1.5em 0;
+  margin-block-end: 4em;
+  margin-block-start: 4em;
   opacity: 1;
+  overflow: visible;
+  position: relative;
+}
+
+.markdown-preview-view hr::after,
+.markdown-reading-view hr::after,
+.markdown-rendered hr::after,
+.cm-content hr::after,
+.cm-s-obsidian hr::after,
+.cm-s-obsidian .HyperMD-hr hr::after {
+  background-color: var(--background-primary);
+  color: colors-dark.$h4-color;
+  content: '⌘';
+  display: inline-block;
+  left: 50%;
+  padding: 0.5rem;
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%, -50%) rotate(60deg);
+  transform-origin: 50% 50%;
 }
 
 
@@ -238,6 +282,14 @@
 .cm-s-obsidian span.cm-link.cm-hmd-internal-link,
 .cm-s-obsidian span.cm-underline.cm-hmd-internal-link {
   color: var(--link-internal-color, colors-dark.$link-internal-color) !important;
+  text-decoration: none !important;
+  text-decoration-line: none !important;
+}
+
+.cm-s-obsidian span.cm-hmd-internal-link .cm-underline,
+.cm-s-obsidian span.cm-link.cm-hmd-internal-link .cm-underline {
+  text-decoration: none !important;
+  text-decoration-line: none !important;
 }
 
 /* Unresolved internal links: scoped only to elements flagged with .is-unresolved */
@@ -255,6 +307,14 @@
 .cm-s-obsidian span.cm-link.cm-hmd-internal-link.is-unresolved,
 .cm-s-obsidian span.cm-underline.cm-hmd-internal-link.is-unresolved {
   color: var(--link-internal-unresolved-color) !important;
+  text-decoration: none !important;
+  text-decoration-line: none !important;
+}
+
+.cm-s-obsidian span.cm-hmd-internal-link.is-unresolved .cm-underline,
+.cm-s-obsidian span.cm-link.cm-hmd-internal-link.is-unresolved .cm-underline {
+  text-decoration: none !important;
+  text-decoration-line: none !important;
 }
 
 // External link styling: high specificity and coverage
@@ -301,7 +361,7 @@
 .cm-link a.internal-link:hover,
 .markdown-rendered a.internal-link:hover {
   color: var(--link-internal-hover-color, colors-dark.$link-internal-color) !important;
-  text-decoration: underline;
+  text-decoration: none !important;
 }
 
 /* --- Tags --- */
@@ -740,4 +800,10 @@ input.metadata-property-key-input,
 
 .metadata-link-inner.internal-link {
   color: var(--metadata-link-inner-color, #8C355E);
+  text-decoration: none !important;
+}
+
+.metadata-property-value .internal-link,
+.metadata-property-value .internal-link:hover {
+  text-decoration: none !important;
 }
